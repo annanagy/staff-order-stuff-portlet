@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.0.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_0_0.dtd">
+<service-builder package-path="com.liferay.support.stafforderstuff">
+    <author>Anna &amp; Ádám</author>
+    <namespace>StaffOrderStuff</namespace>
+    <entity name="Food" local-service="true" remote-service="false">
+        <column name="FoodId" type="int" primary="true"></column>
+        <column name="CompanyId" type="long"></column>
+        <column name="GroupId" type="long"></column>
+        <column name="Name" type="String"></column>
+        <column name="Price" type="double"></column>
+        <column name="Quantity" type="double"></column>
+        <column name="Unit" type="String"></column>
+        <finder name="GroupId" return-type="Collection">
+            <finder-column name="GroupId"></finder-column>
+        </finder>
+    </entity>
+    <entity name="Consumption" local-service="true" remote-service="false">
+        <column name="ConsumptionId" type="int" primary="true"></column>
+        <column name="UserId" type="int"></column>
+        <column name="FoodId" type="int"></column>
+        <column name="Date" type="Date"></column>
+        <column name="Quantity" type="double"></column>
+        <column name="Unit" type="String"></column>
+        <column name="Status" type="int"></column>
+        <finder name="ConsumptionId" return-type="Collection">
+            <finder-column name="ConsumptionId"></finder-column>
+        </finder>
+    </entity>
+</service-builder>

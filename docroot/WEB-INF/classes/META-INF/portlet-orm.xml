@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="com.liferay.support.stafforderstuff.model.impl.ConsumptionModelImpl">
+		<attributes>
+			<id name="ConsumptionId" />
+			<basic name="UserId" />
+			<basic name="FoodId" />
+			<basic name="Date">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="Quantity" />
+			<basic name="Unit" />
+			<basic name="Status" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.liferay.support.stafforderstuff.model.impl.FoodModelImpl">
+		<attributes>
+			<id name="FoodId" />
+			<basic name="CompanyId" />
+			<basic name="GroupId" />
+			<basic name="Name" />
+			<basic name="Price" />
+			<basic name="Quantity" />
+			<basic name="Unit" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="com.liferay.support.stafforderstuff.model.impl.ConsumptionImpl" name="Consumption">
+		<table name="StaffOrderStuff_Consumption" />
+		<attributes />
+	</entity>
+	<entity class="com.liferay.support.stafforderstuff.model.impl.FoodImpl" name="Food">
+		<table name="StaffOrderStuff_Food" />
+		<attributes />
+	</entity>
+</entity-mappings>

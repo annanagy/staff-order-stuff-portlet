@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<!DOCTYPE project>
+
+<project name="staff-order-stuff-portlet" basedir="." default="deploy">
+	<import file="/home/tna/liferay/git/liferay-plugins-ee-6.2.10/portlets/build-common-portlet.xml" />
+</project>
