@@ -8,6 +8,7 @@ import java.io.IOException;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
+import javax.portlet.PortletException;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
@@ -17,20 +18,22 @@ import javax.portlet.RenderResponse;
 public class StaffOrderStuff extends MVCPortlet {
 
 		public void doView(RenderRequest request, RenderResponse response)
-				throws IOException {
+				throws IOException, PortletException {
 
 			_log.error("Inside doView");
 
+			super.doView(request, response);
+
 		}
 
-		public void processAction(ActionRequest req, ActionResponse resp)
-				throws IOException {
+		public void processAction(ActionRequest request, ActionResponse response)
+				throws IOException, PortletException {
 
 				_log.error("Inside processAction");
 				//Code to add dummy entity here
 
 				// Verify if the sendRedirect is necessary...
-				sendRedirect(req, resp);
+				sendRedirect(request, response);
 
 		}
 
