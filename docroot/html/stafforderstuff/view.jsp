@@ -3,3 +3,6 @@
 <portlet:defineObjects />
 
 This is the <b>Staff Order Stuff Portlet</b> portlet in View mode.
+
+
+<h3>Welcome</h3>

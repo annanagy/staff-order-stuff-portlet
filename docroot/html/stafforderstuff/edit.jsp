@@ -3,3 +3,10 @@
 <portlet:defineObjects />
 
 This is the <b>Staff Order Stuff Portlet</b> portlet in Edit mode.
+
+<form action="<portlet:actionURL />" method="post"
+		name="<portlet:namespace />fm">
+
+	<input type="submit" value="Add_dummy_entity"/>
+
+</form>
