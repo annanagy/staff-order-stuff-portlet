@@ -1,7 +1,12 @@
 package com.liferay.support.stafforderstuff;
 
+import com.liferay.counter.service.CounterLocalServiceUtil;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.support.stafforderstuff.model.Food;
+import com.liferay.support.stafforderstuff.service.FoodLocalServiceUtil;
+import com.liferay.support.stafforderstuff.service.impl.FoodLocalServiceImpl;
 import com.liferay.util.bridges.mvc.MVCPortlet;
 
 import java.io.IOException;
@@ -22,6 +27,7 @@ public class StaffOrderStuff extends MVCPortlet {
 
 			_log.error("Inside doView");
 
+			//discuss why is the call to supee necessary
 			super.doView(request, response);
 
 		}
@@ -30,7 +36,9 @@ public class StaffOrderStuff extends MVCPortlet {
 				throws IOException, PortletException {
 
 				_log.error("Inside processAction");
+
 				//Code to add dummy entity here
+				FoodLocalServiceUtil.addDummyFood();
 
 				// Verify if the sendRedirect is necessary...
 				sendRedirect(request, response);

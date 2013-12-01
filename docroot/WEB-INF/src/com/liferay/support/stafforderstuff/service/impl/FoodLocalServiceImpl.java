@@ -14,6 +14,12 @@
 
 package com.liferay.support.stafforderstuff.service.impl;
 
+import com.liferay.counter.service.CounterLocalServiceUtil;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.support.stafforderstuff.StaffOrderStuff;
+import com.liferay.support.stafforderstuff.model.Food;
 import com.liferay.support.stafforderstuff.service.base.FoodLocalServiceBaseImpl;
 
 /**
@@ -36,4 +42,62 @@ public class FoodLocalServiceImpl extends FoodLocalServiceBaseImpl {
 	 *
 	 * Never reference this interface directly. Always use {@link com.liferay.support.stafforderstuff.service.FoodLocalServiceUtil} to access the food local service.
 	 */
+	
+	public void addDummyFood() {
+
+		_log.error("Inside addDummyFood()");
+		try {
+			Food food = createDummyFood();
+			addFood(food);
+		} catch (SystemException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public Food createDummyFood() throws SystemException {
+
+		_log.error("Inside createDummyFood()");
+		int foodId = (int) CounterLocalServiceUtil.increment(Food.class.getName());
+		Food food = foodPersistence.create(foodId);
+
+		long companyId = 1;
+		food.setCompanyId(companyId);
+
+		long groupId = 1;
+		food.setGroupId(groupId);
+
+		String name = "DummyFood" + String.valueOf(foodId);
+		food.setName(name);
+		//double price = (short) foodId; // ;-)
+
+		double quantity = 1;
+		food.setQuantity(quantity);
+
+		String unit = "pcs";
+		food.setUnit(unit);
+
+		return food;
+	}
+	
+/*	public void addFood(int foodId, long companyId, long groupId,
+			String name, double price, double quantity, String unit) {
+
+			_log.error("Currently doing nothing in addFood(lotsofparams)");
+			//Copy pasted the relevant info from service.xml
+
+			//<column name="FoodId" type="int" primary="true"></column>
+			//<column name="CompanyId" type="long"></column>
+			//<column name="GroupId" type="long"></column>
+			//<column name="Name" type="String"></column>
+			//<column name="Price" type="double"></column>
+			//<column name="Quantity" type="double"></column>
+			//<column name="Unit" type="String"></column>
+
+			//User user = userPersistence.findByPrimaryKey(userId);
+
+			//
+	}
+*/
+	private static Log _log = LogFactoryUtil.getLog(FoodLocalServiceImpl.class);
 }

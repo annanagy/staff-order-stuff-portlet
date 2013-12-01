@@ -274,6 +274,15 @@ public class FoodLocalServiceUtil {
 		return getService().invokeMethod(name, parameterTypes, arguments);
 	}
 
+	public static void addDummyFood() {
+		getService().addDummyFood();
+	}
+
+	public static com.liferay.support.stafforderstuff.model.Food createDummyFood()
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().createDummyFood();
+	}
+
 	public static void clearService() {
 		_service = null;
 	}
