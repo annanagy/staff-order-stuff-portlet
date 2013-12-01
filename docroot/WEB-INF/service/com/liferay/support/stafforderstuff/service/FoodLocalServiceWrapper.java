@@ -280,6 +280,17 @@ public class FoodLocalServiceWrapper implements FoodLocalService,
 		return _foodLocalService.invokeMethod(name, parameterTypes, arguments);
 	}
 
+	@Override
+	public void addDummyFood() {
+		_foodLocalService.addDummyFood();
+	}
+
+	@Override
+	public com.liferay.support.stafforderstuff.model.Food createDummyFood()
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _foodLocalService.createDummyFood();
+	}
+
 	/**
 	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
 	 */

@@ -330,7 +330,8 @@ public class ConsumptionWrapper implements Consumption,
 	}
 
 	@Override
-	public int compareTo(Consumption consumption) {
+	public int compareTo(
+		com.liferay.support.stafforderstuff.model.Consumption consumption) {
 		return _consumption.compareTo(consumption);
 	}
 
@@ -340,17 +341,17 @@ public class ConsumptionWrapper implements Consumption,
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<Consumption> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<com.liferay.support.stafforderstuff.model.Consumption> toCacheModel() {
 		return _consumption.toCacheModel();
 	}
 
 	@Override
-	public Consumption toEscapedModel() {
+	public com.liferay.support.stafforderstuff.model.Consumption toEscapedModel() {
 		return new ConsumptionWrapper(_consumption.toEscapedModel());
 	}
 
 	@Override
-	public Consumption toUnescapedModel() {
+	public com.liferay.support.stafforderstuff.model.Consumption toUnescapedModel() {
 		return new ConsumptionWrapper(_consumption.toUnescapedModel());
 	}
 

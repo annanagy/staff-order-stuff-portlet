@@ -328,7 +328,7 @@ public class FoodWrapper implements Food, ModelWrapper<Food> {
 	}
 
 	@Override
-	public int compareTo(Food food) {
+	public int compareTo(com.liferay.support.stafforderstuff.model.Food food) {
 		return _food.compareTo(food);
 	}
 
@@ -338,17 +338,17 @@ public class FoodWrapper implements Food, ModelWrapper<Food> {
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<Food> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<com.liferay.support.stafforderstuff.model.Food> toCacheModel() {
 		return _food.toCacheModel();
 	}
 
 	@Override
-	public Food toEscapedModel() {
+	public com.liferay.support.stafforderstuff.model.Food toEscapedModel() {
 		return new FoodWrapper(_food.toEscapedModel());
 	}
 
 	@Override
-	public Food toUnescapedModel() {
+	public com.liferay.support.stafforderstuff.model.Food toUnescapedModel() {
 		return new FoodWrapper(_food.toUnescapedModel());
 	}
 
