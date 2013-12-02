@@ -118,7 +118,7 @@ public class ConsumptionUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<com.liferay.support.stafforderstuff.model.Consumption> findByConsumptionId(
-		int ConsumptionId)
+		long ConsumptionId)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return getPersistence().findByConsumptionId(ConsumptionId);
 	}
@@ -137,7 +137,7 @@ public class ConsumptionUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<com.liferay.support.stafforderstuff.model.Consumption> findByConsumptionId(
-		int ConsumptionId, int start, int end)
+		long ConsumptionId, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return getPersistence().findByConsumptionId(ConsumptionId, start, end);
 	}
@@ -157,7 +157,7 @@ public class ConsumptionUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<com.liferay.support.stafforderstuff.model.Consumption> findByConsumptionId(
-		int ConsumptionId, int start, int end,
+		long ConsumptionId, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return getPersistence()
@@ -175,7 +175,7 @@ public class ConsumptionUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.liferay.support.stafforderstuff.model.Consumption findByConsumptionId_First(
-		int ConsumptionId,
+		long ConsumptionId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			com.liferay.support.stafforderstuff.NoSuchConsumptionException {
@@ -192,7 +192,7 @@ public class ConsumptionUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.liferay.support.stafforderstuff.model.Consumption fetchByConsumptionId_First(
-		int ConsumptionId,
+		long ConsumptionId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return getPersistence()
@@ -209,7 +209,7 @@ public class ConsumptionUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.liferay.support.stafforderstuff.model.Consumption findByConsumptionId_Last(
-		int ConsumptionId,
+		long ConsumptionId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			com.liferay.support.stafforderstuff.NoSuchConsumptionException {
@@ -226,7 +226,7 @@ public class ConsumptionUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.liferay.support.stafforderstuff.model.Consumption fetchByConsumptionId_Last(
-		int ConsumptionId,
+		long ConsumptionId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return getPersistence()
@@ -239,7 +239,7 @@ public class ConsumptionUtil {
 	* @param ConsumptionId the consumption ID
 	* @throws SystemException if a system exception occurred
 	*/
-	public static void removeByConsumptionId(int ConsumptionId)
+	public static void removeByConsumptionId(long ConsumptionId)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		getPersistence().removeByConsumptionId(ConsumptionId);
 	}
@@ -251,7 +251,7 @@ public class ConsumptionUtil {
 	* @return the number of matching consumptions
 	* @throws SystemException if a system exception occurred
 	*/
-	public static int countByConsumptionId(int ConsumptionId)
+	public static int countByConsumptionId(long ConsumptionId)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return getPersistence().countByConsumptionId(ConsumptionId);
 	}
@@ -283,7 +283,7 @@ public class ConsumptionUtil {
 	* @return the new consumption
 	*/
 	public static com.liferay.support.stafforderstuff.model.Consumption create(
-		int ConsumptionId) {
+		long ConsumptionId) {
 		return getPersistence().create(ConsumptionId);
 	}
 
@@ -296,7 +296,7 @@ public class ConsumptionUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.liferay.support.stafforderstuff.model.Consumption remove(
-		int ConsumptionId)
+		long ConsumptionId)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			com.liferay.support.stafforderstuff.NoSuchConsumptionException {
 		return getPersistence().remove(ConsumptionId);
@@ -317,7 +317,7 @@ public class ConsumptionUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.liferay.support.stafforderstuff.model.Consumption findByPrimaryKey(
-		int ConsumptionId)
+		long ConsumptionId)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			com.liferay.support.stafforderstuff.NoSuchConsumptionException {
 		return getPersistence().findByPrimaryKey(ConsumptionId);
@@ -331,7 +331,7 @@ public class ConsumptionUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.liferay.support.stafforderstuff.model.Consumption fetchByPrimaryKey(
-		int ConsumptionId)
+		long ConsumptionId)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return getPersistence().fetchByPrimaryKey(ConsumptionId);
 	}

@@ -88,7 +88,7 @@ public class FoodCacheModel implements CacheModel<Food>, Externalizable {
 
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
-		FoodId = objectInput.readInt();
+		FoodId = objectInput.readLong();
 		CompanyId = objectInput.readLong();
 		GroupId = objectInput.readLong();
 		Name = objectInput.readUTF();
@@ -100,7 +100,7 @@ public class FoodCacheModel implements CacheModel<Food>, Externalizable {
 	@Override
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
-		objectOutput.writeInt(FoodId);
+		objectOutput.writeLong(FoodId);
 		objectOutput.writeLong(CompanyId);
 		objectOutput.writeLong(GroupId);
 
@@ -122,7 +122,7 @@ public class FoodCacheModel implements CacheModel<Food>, Externalizable {
 		}
 	}
 
-	public int FoodId;
+	public long FoodId;
 	public long CompanyId;
 	public long GroupId;
 	public String Name;

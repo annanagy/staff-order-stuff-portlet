@@ -32,11 +32,11 @@ public class ConsumptionLocalServiceClpInvoker {
 
 		_methodName1 = "createConsumption";
 
-		_methodParameterTypes1 = new String[] { "int" };
+		_methodParameterTypes1 = new String[] { "long" };
 
 		_methodName2 = "deleteConsumption";
 
-		_methodParameterTypes2 = new String[] { "int" };
+		_methodParameterTypes2 = new String[] { "long" };
 
 		_methodName3 = "deleteConsumption";
 
@@ -82,11 +82,11 @@ public class ConsumptionLocalServiceClpInvoker {
 
 		_methodName10 = "fetchConsumption";
 
-		_methodParameterTypes10 = new String[] { "int" };
+		_methodParameterTypes10 = new String[] { "long" };
 
 		_methodName11 = "getConsumption";
 
-		_methodParameterTypes11 = new String[] { "int" };
+		_methodParameterTypes11 = new String[] { "long" };
 
 		_methodName12 = "getPersistedModel";
 
@@ -124,12 +124,12 @@ public class ConsumptionLocalServiceClpInvoker {
 
 		if (_methodName1.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes1, parameterTypes)) {
-			return ConsumptionLocalServiceUtil.createConsumption(((Integer)arguments[0]).intValue());
+			return ConsumptionLocalServiceUtil.createConsumption(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName2.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes2, parameterTypes)) {
-			return ConsumptionLocalServiceUtil.deleteConsumption(((Integer)arguments[0]).intValue());
+			return ConsumptionLocalServiceUtil.deleteConsumption(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName3.equals(name) &&
@@ -175,12 +175,12 @@ public class ConsumptionLocalServiceClpInvoker {
 
 		if (_methodName10.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes10, parameterTypes)) {
-			return ConsumptionLocalServiceUtil.fetchConsumption(((Integer)arguments[0]).intValue());
+			return ConsumptionLocalServiceUtil.fetchConsumption(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName11.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes11, parameterTypes)) {
-			return ConsumptionLocalServiceUtil.getConsumption(((Integer)arguments[0]).intValue());
+			return ConsumptionLocalServiceUtil.getConsumption(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName12.equals(name) &&

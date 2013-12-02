@@ -62,7 +62,8 @@ public interface FoodLocalService extends BaseLocalService, InvokableLocalServic
 	* @param FoodId the primary key for the new food
 	* @return the new food
 	*/
-	public com.liferay.support.stafforderstuff.model.Food createFood(int FoodId);
+	public com.liferay.support.stafforderstuff.model.Food createFood(
+		long FoodId);
 
 	/**
 	* Deletes the food with the primary key from the database. Also notifies the appropriate model listeners.
@@ -72,7 +73,8 @@ public interface FoodLocalService extends BaseLocalService, InvokableLocalServic
 	* @throws PortalException if a food with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.liferay.support.stafforderstuff.model.Food deleteFood(int FoodId)
+	public com.liferay.support.stafforderstuff.model.Food deleteFood(
+		long FoodId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
@@ -165,7 +167,7 @@ public interface FoodLocalService extends BaseLocalService, InvokableLocalServic
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.liferay.support.stafforderstuff.model.Food fetchFood(int FoodId)
+	public com.liferay.support.stafforderstuff.model.Food fetchFood(long FoodId)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -177,7 +179,7 @@ public interface FoodLocalService extends BaseLocalService, InvokableLocalServic
 	* @throws SystemException if a system exception occurred
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.liferay.support.stafforderstuff.model.Food getFood(int FoodId)
+	public com.liferay.support.stafforderstuff.model.Food getFood(long FoodId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 

@@ -32,11 +32,11 @@ public class FoodLocalServiceClpInvoker {
 
 		_methodName1 = "createFood";
 
-		_methodParameterTypes1 = new String[] { "int" };
+		_methodParameterTypes1 = new String[] { "long" };
 
 		_methodName2 = "deleteFood";
 
-		_methodParameterTypes2 = new String[] { "int" };
+		_methodParameterTypes2 = new String[] { "long" };
 
 		_methodName3 = "deleteFood";
 
@@ -82,11 +82,11 @@ public class FoodLocalServiceClpInvoker {
 
 		_methodName10 = "fetchFood";
 
-		_methodParameterTypes10 = new String[] { "int" };
+		_methodParameterTypes10 = new String[] { "long" };
 
 		_methodName11 = "getFood";
 
-		_methodParameterTypes11 = new String[] { "int" };
+		_methodParameterTypes11 = new String[] { "long" };
 
 		_methodName12 = "getPersistedModel";
 
@@ -132,12 +132,12 @@ public class FoodLocalServiceClpInvoker {
 
 		if (_methodName1.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes1, parameterTypes)) {
-			return FoodLocalServiceUtil.createFood(((Integer)arguments[0]).intValue());
+			return FoodLocalServiceUtil.createFood(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName2.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes2, parameterTypes)) {
-			return FoodLocalServiceUtil.deleteFood(((Integer)arguments[0]).intValue());
+			return FoodLocalServiceUtil.deleteFood(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName3.equals(name) &&
@@ -183,12 +183,12 @@ public class FoodLocalServiceClpInvoker {
 
 		if (_methodName10.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes10, parameterTypes)) {
-			return FoodLocalServiceUtil.fetchFood(((Integer)arguments[0]).intValue());
+			return FoodLocalServiceUtil.fetchFood(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName11.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes11, parameterTypes)) {
-			return FoodLocalServiceUtil.getFood(((Integer)arguments[0]).intValue());
+			return FoodLocalServiceUtil.getFood(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName12.equals(name) &&

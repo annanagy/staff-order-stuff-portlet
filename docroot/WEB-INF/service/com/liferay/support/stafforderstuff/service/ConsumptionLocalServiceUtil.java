@@ -59,7 +59,7 @@ public class ConsumptionLocalServiceUtil {
 	* @return the new consumption
 	*/
 	public static com.liferay.support.stafforderstuff.model.Consumption createConsumption(
-		int ConsumptionId) {
+		long ConsumptionId) {
 		return getService().createConsumption(ConsumptionId);
 	}
 
@@ -72,7 +72,7 @@ public class ConsumptionLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.liferay.support.stafforderstuff.model.Consumption deleteConsumption(
-		int ConsumptionId)
+		long ConsumptionId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return getService().deleteConsumption(ConsumptionId);
@@ -182,7 +182,7 @@ public class ConsumptionLocalServiceUtil {
 	}
 
 	public static com.liferay.support.stafforderstuff.model.Consumption fetchConsumption(
-		int ConsumptionId)
+		long ConsumptionId)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return getService().fetchConsumption(ConsumptionId);
 	}
@@ -196,7 +196,7 @@ public class ConsumptionLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.liferay.support.stafforderstuff.model.Consumption getConsumption(
-		int ConsumptionId)
+		long ConsumptionId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return getService().getConsumption(ConsumptionId);

@@ -45,7 +45,7 @@ public interface ConsumptionPersistence extends BasePersistence<Consumption> {
 	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<com.liferay.support.stafforderstuff.model.Consumption> findByConsumptionId(
-		int ConsumptionId)
+		long ConsumptionId)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -62,7 +62,7 @@ public interface ConsumptionPersistence extends BasePersistence<Consumption> {
 	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<com.liferay.support.stafforderstuff.model.Consumption> findByConsumptionId(
-		int ConsumptionId, int start, int end)
+		long ConsumptionId, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -80,7 +80,7 @@ public interface ConsumptionPersistence extends BasePersistence<Consumption> {
 	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<com.liferay.support.stafforderstuff.model.Consumption> findByConsumptionId(
-		int ConsumptionId, int start, int end,
+		long ConsumptionId, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
@@ -94,7 +94,7 @@ public interface ConsumptionPersistence extends BasePersistence<Consumption> {
 	* @throws SystemException if a system exception occurred
 	*/
 	public com.liferay.support.stafforderstuff.model.Consumption findByConsumptionId_First(
-		int ConsumptionId,
+		long ConsumptionId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			com.liferay.support.stafforderstuff.NoSuchConsumptionException;
@@ -108,7 +108,7 @@ public interface ConsumptionPersistence extends BasePersistence<Consumption> {
 	* @throws SystemException if a system exception occurred
 	*/
 	public com.liferay.support.stafforderstuff.model.Consumption fetchByConsumptionId_First(
-		int ConsumptionId,
+		long ConsumptionId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
@@ -122,7 +122,7 @@ public interface ConsumptionPersistence extends BasePersistence<Consumption> {
 	* @throws SystemException if a system exception occurred
 	*/
 	public com.liferay.support.stafforderstuff.model.Consumption findByConsumptionId_Last(
-		int ConsumptionId,
+		long ConsumptionId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			com.liferay.support.stafforderstuff.NoSuchConsumptionException;
@@ -136,7 +136,7 @@ public interface ConsumptionPersistence extends BasePersistence<Consumption> {
 	* @throws SystemException if a system exception occurred
 	*/
 	public com.liferay.support.stafforderstuff.model.Consumption fetchByConsumptionId_Last(
-		int ConsumptionId,
+		long ConsumptionId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
@@ -146,7 +146,7 @@ public interface ConsumptionPersistence extends BasePersistence<Consumption> {
 	* @param ConsumptionId the consumption ID
 	* @throws SystemException if a system exception occurred
 	*/
-	public void removeByConsumptionId(int ConsumptionId)
+	public void removeByConsumptionId(long ConsumptionId)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -156,7 +156,7 @@ public interface ConsumptionPersistence extends BasePersistence<Consumption> {
 	* @return the number of matching consumptions
 	* @throws SystemException if a system exception occurred
 	*/
-	public int countByConsumptionId(int ConsumptionId)
+	public int countByConsumptionId(long ConsumptionId)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -182,7 +182,7 @@ public interface ConsumptionPersistence extends BasePersistence<Consumption> {
 	* @return the new consumption
 	*/
 	public com.liferay.support.stafforderstuff.model.Consumption create(
-		int ConsumptionId);
+		long ConsumptionId);
 
 	/**
 	* Removes the consumption with the primary key from the database. Also notifies the appropriate model listeners.
@@ -193,7 +193,7 @@ public interface ConsumptionPersistence extends BasePersistence<Consumption> {
 	* @throws SystemException if a system exception occurred
 	*/
 	public com.liferay.support.stafforderstuff.model.Consumption remove(
-		int ConsumptionId)
+		long ConsumptionId)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			com.liferay.support.stafforderstuff.NoSuchConsumptionException;
 
@@ -210,7 +210,7 @@ public interface ConsumptionPersistence extends BasePersistence<Consumption> {
 	* @throws SystemException if a system exception occurred
 	*/
 	public com.liferay.support.stafforderstuff.model.Consumption findByPrimaryKey(
-		int ConsumptionId)
+		long ConsumptionId)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			com.liferay.support.stafforderstuff.NoSuchConsumptionException;
 
@@ -222,7 +222,7 @@ public interface ConsumptionPersistence extends BasePersistence<Consumption> {
 	* @throws SystemException if a system exception occurred
 	*/
 	public com.liferay.support.stafforderstuff.model.Consumption fetchByPrimaryKey(
-		int ConsumptionId)
+		long ConsumptionId)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**

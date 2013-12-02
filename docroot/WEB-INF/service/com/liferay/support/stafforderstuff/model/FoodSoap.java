@@ -80,19 +80,19 @@ public class FoodSoap implements Serializable {
 	public FoodSoap() {
 	}
 
-	public int getPrimaryKey() {
+	public long getPrimaryKey() {
 		return _FoodId;
 	}
 
-	public void setPrimaryKey(int pk) {
+	public void setPrimaryKey(long pk) {
 		setFoodId(pk);
 	}
 
-	public int getFoodId() {
+	public long getFoodId() {
 		return _FoodId;
 	}
 
-	public void setFoodId(int FoodId) {
+	public void setFoodId(long FoodId) {
 		_FoodId = FoodId;
 	}
 
@@ -144,7 +144,7 @@ public class FoodSoap implements Serializable {
 		_Unit = Unit;
 	}
 
-	private int _FoodId;
+	private long _FoodId;
 	private long _CompanyId;
 	private long _GroupId;
 	private String _Name;

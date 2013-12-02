@@ -50,28 +50,28 @@ public interface ConsumptionModel extends BaseModel<Consumption> {
 	 *
 	 * @return the primary key of this consumption
 	 */
-	public int getPrimaryKey();
+	public long getPrimaryKey();
 
 	/**
 	 * Sets the primary key of this consumption.
 	 *
 	 * @param primaryKey the primary key of this consumption
 	 */
-	public void setPrimaryKey(int primaryKey);
+	public void setPrimaryKey(long primaryKey);
 
 	/**
 	 * Returns the consumption ID of this consumption.
 	 *
 	 * @return the consumption ID of this consumption
 	 */
-	public int getConsumptionId();
+	public long getConsumptionId();
 
 	/**
 	 * Sets the consumption ID of this consumption.
 	 *
 	 * @param ConsumptionId the consumption ID of this consumption
 	 */
-	public void setConsumptionId(int ConsumptionId);
+	public void setConsumptionId(long ConsumptionId);
 
 	/**
 	 * Returns the user ID of this consumption.

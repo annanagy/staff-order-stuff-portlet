@@ -6,7 +6,7 @@
 	<import class="com.liferay.support.stafforderstuff.model.Food" />
 	<class name="com.liferay.support.stafforderstuff.model.impl.ConsumptionImpl" table="StaffOrderStuff_Consumption">
 		<cache usage="read-write" />
-		<id name="ConsumptionId" type="int">
+		<id name="ConsumptionId" type="long">
 			<generator class="assigned" />
 		</id>
 		<property name="UserId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
@@ -18,7 +18,7 @@
 	</class>
 	<class name="com.liferay.support.stafforderstuff.model.impl.FoodImpl" table="StaffOrderStuff_Food">
 		<cache usage="read-write" />
-		<id name="FoodId" type="int">
+		<id name="FoodId" type="long">
 			<generator class="assigned" />
 		</id>
 		<property name="CompanyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />

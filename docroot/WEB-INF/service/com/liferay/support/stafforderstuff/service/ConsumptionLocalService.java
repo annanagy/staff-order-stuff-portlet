@@ -63,7 +63,7 @@ public interface ConsumptionLocalService extends BaseLocalService,
 	* @return the new consumption
 	*/
 	public com.liferay.support.stafforderstuff.model.Consumption createConsumption(
-		int ConsumptionId);
+		long ConsumptionId);
 
 	/**
 	* Deletes the consumption with the primary key from the database. Also notifies the appropriate model listeners.
@@ -74,7 +74,7 @@ public interface ConsumptionLocalService extends BaseLocalService,
 	* @throws SystemException if a system exception occurred
 	*/
 	public com.liferay.support.stafforderstuff.model.Consumption deleteConsumption(
-		int ConsumptionId)
+		long ConsumptionId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
@@ -168,7 +168,7 @@ public interface ConsumptionLocalService extends BaseLocalService,
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public com.liferay.support.stafforderstuff.model.Consumption fetchConsumption(
-		int ConsumptionId)
+		long ConsumptionId)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -181,7 +181,7 @@ public interface ConsumptionLocalService extends BaseLocalService,
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public com.liferay.support.stafforderstuff.model.Consumption getConsumption(
-		int ConsumptionId)
+		long ConsumptionId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 

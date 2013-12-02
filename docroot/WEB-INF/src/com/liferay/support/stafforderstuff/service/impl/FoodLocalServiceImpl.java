@@ -58,7 +58,7 @@ public class FoodLocalServiceImpl extends FoodLocalServiceBaseImpl {
 	public Food createDummyFood() throws SystemException {
 
 		_log.error("Inside createDummyFood()");
-		int foodId = (int) CounterLocalServiceUtil.increment(Food.class.getName());
+		long foodId = CounterLocalServiceUtil.increment(Food.class.getName());
 		Food food = foodPersistence.create(foodId);
 
 		long companyId = 1;
@@ -86,7 +86,7 @@ public class FoodLocalServiceImpl extends FoodLocalServiceBaseImpl {
 			_log.error("Currently doing nothing in addFood(lotsofparams)");
 			//Copy pasted the relevant info from service.xml
 
-			//<column name="FoodId" type="int" primary="true"></column>
+			//<column name="FoodId" type="long" primary="true"></column>
 			//<column name="CompanyId" type="long"></column>
 			//<column name="GroupId" type="long"></column>
 			//<column name="Name" type="String"></column>

@@ -49,12 +49,12 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 	}
 
 	@Override
-	public int getPrimaryKey() {
+	public long getPrimaryKey() {
 		return _FoodId;
 	}
 
 	@Override
-	public void setPrimaryKey(int primaryKey) {
+	public void setPrimaryKey(long primaryKey) {
 		setFoodId(primaryKey);
 	}
 
@@ -65,7 +65,7 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 
 	@Override
 	public void setPrimaryKeyObj(Serializable primaryKeyObj) {
-		setPrimaryKey(((Integer)primaryKeyObj).intValue());
+		setPrimaryKey(((Long)primaryKeyObj).longValue());
 	}
 
 	@Override
@@ -85,7 +85,7 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Integer FoodId = (Integer)attributes.get("FoodId");
+		Long FoodId = (Long)attributes.get("FoodId");
 
 		if (FoodId != null) {
 			setFoodId(FoodId);
@@ -129,19 +129,19 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 	}
 
 	@Override
-	public int getFoodId() {
+	public long getFoodId() {
 		return _FoodId;
 	}
 
 	@Override
-	public void setFoodId(int FoodId) {
+	public void setFoodId(long FoodId) {
 		_FoodId = FoodId;
 
 		if (_foodRemoteModel != null) {
 			try {
 				Class<?> clazz = _foodRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setFoodId", int.class);
+				Method method = clazz.getMethod("setFoodId", long.class);
 
 				method.invoke(_foodRemoteModel, FoodId);
 			}
@@ -371,7 +371,7 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 
 	@Override
 	public int compareTo(Food food) {
-		int primaryKey = food.getPrimaryKey();
+		long primaryKey = food.getPrimaryKey();
 
 		if (getPrimaryKey() < primaryKey) {
 			return -1;
@@ -396,7 +396,7 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 
 		FoodClp food = (FoodClp)obj;
 
-		int primaryKey = food.getPrimaryKey();
+		long primaryKey = food.getPrimaryKey();
 
 		if (getPrimaryKey() == primaryKey) {
 			return true;
@@ -408,7 +408,7 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 
 	@Override
 	public int hashCode() {
-		return getPrimaryKey();
+		return (int)getPrimaryKey();
 	}
 
 	@Override
@@ -476,7 +476,7 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 		return sb.toString();
 	}
 
-	private int _FoodId;
+	private long _FoodId;
 	private long _CompanyId;
 	private long _GroupId;
 	private String _Name;

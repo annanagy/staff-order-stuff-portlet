@@ -32,11 +32,11 @@ public class FoodLocalServiceClp implements FoodLocalService {
 
 		_methodName1 = "createFood";
 
-		_methodParameterTypes1 = new String[] { "int" };
+		_methodParameterTypes1 = new String[] { "long" };
 
 		_methodName2 = "deleteFood";
 
-		_methodParameterTypes2 = new String[] { "int" };
+		_methodParameterTypes2 = new String[] { "long" };
 
 		_methodName3 = "deleteFood";
 
@@ -82,11 +82,11 @@ public class FoodLocalServiceClp implements FoodLocalService {
 
 		_methodName10 = "fetchFood";
 
-		_methodParameterTypes10 = new String[] { "int" };
+		_methodParameterTypes10 = new String[] { "long" };
 
 		_methodName11 = "getFood";
 
-		_methodParameterTypes11 = new String[] { "int" };
+		_methodParameterTypes11 = new String[] { "long" };
 
 		_methodName12 = "getPersistedModel";
 
@@ -154,7 +154,8 @@ public class FoodLocalServiceClp implements FoodLocalService {
 	}
 
 	@Override
-	public com.liferay.support.stafforderstuff.model.Food createFood(int FoodId) {
+	public com.liferay.support.stafforderstuff.model.Food createFood(
+		long FoodId) {
 		Object returnObj = null;
 
 		try {
@@ -177,7 +178,8 @@ public class FoodLocalServiceClp implements FoodLocalService {
 	}
 
 	@Override
-	public com.liferay.support.stafforderstuff.model.Food deleteFood(int FoodId)
+	public com.liferay.support.stafforderstuff.model.Food deleteFood(
+		long FoodId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
@@ -437,7 +439,7 @@ public class FoodLocalServiceClp implements FoodLocalService {
 	}
 
 	@Override
-	public com.liferay.support.stafforderstuff.model.Food fetchFood(int FoodId)
+	public com.liferay.support.stafforderstuff.model.Food fetchFood(long FoodId)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
@@ -465,7 +467,7 @@ public class FoodLocalServiceClp implements FoodLocalService {
 	}
 
 	@Override
-	public com.liferay.support.stafforderstuff.model.Food getFood(int FoodId)
+	public com.liferay.support.stafforderstuff.model.Food getFood(long FoodId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;

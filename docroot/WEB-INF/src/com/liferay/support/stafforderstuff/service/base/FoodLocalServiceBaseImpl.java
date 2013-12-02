@@ -84,7 +84,7 @@ public abstract class FoodLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @return the new food
 	 */
 	@Override
-	public Food createFood(int FoodId) {
+	public Food createFood(long FoodId) {
 		return foodPersistence.create(FoodId);
 	}
 
@@ -98,7 +98,7 @@ public abstract class FoodLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 */
 	@Indexable(type = IndexableType.DELETE)
 	@Override
-	public Food deleteFood(int FoodId) throws PortalException, SystemException {
+	public Food deleteFood(long FoodId) throws PortalException, SystemException {
 		return foodPersistence.remove(FoodId);
 	}
 
@@ -207,7 +207,7 @@ public abstract class FoodLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	@Override
-	public Food fetchFood(int FoodId) throws SystemException {
+	public Food fetchFood(long FoodId) throws SystemException {
 		return foodPersistence.fetchByPrimaryKey(FoodId);
 	}
 
@@ -220,7 +220,7 @@ public abstract class FoodLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Food getFood(int FoodId) throws PortalException, SystemException {
+	public Food getFood(long FoodId) throws PortalException, SystemException {
 		return foodPersistence.findByPrimaryKey(FoodId);
 	}
 

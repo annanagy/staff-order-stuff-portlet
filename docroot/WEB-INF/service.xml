@@ -4,7 +4,7 @@
     <author>Anna &amp; Ádám</author>
     <namespace>StaffOrderStuff</namespace>
     <entity name="Food" local-service="true" remote-service="false">
-        <column name="FoodId" type="int" primary="true"></column>
+        <column name="FoodId" type="long" primary="true"></column>
         <column name="CompanyId" type="long"></column>
         <column name="GroupId" type="long"></column>
         <column name="Name" type="String"></column>
@@ -16,7 +16,7 @@
         </finder>
     </entity>
     <entity name="Consumption" local-service="true" remote-service="false">
-        <column name="ConsumptionId" type="int" primary="true"></column>
+        <column name="ConsumptionId" type="long" primary="true"></column>
         <column name="UserId" type="int"></column>
         <column name="FoodId" type="int"></column>
         <column name="Date" type="Date"></column>

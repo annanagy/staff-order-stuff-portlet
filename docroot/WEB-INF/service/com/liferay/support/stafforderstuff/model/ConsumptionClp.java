@@ -51,12 +51,12 @@ public class ConsumptionClp extends BaseModelImpl<Consumption>
 	}
 
 	@Override
-	public int getPrimaryKey() {
+	public long getPrimaryKey() {
 		return _ConsumptionId;
 	}
 
 	@Override
-	public void setPrimaryKey(int primaryKey) {
+	public void setPrimaryKey(long primaryKey) {
 		setConsumptionId(primaryKey);
 	}
 
@@ -67,7 +67,7 @@ public class ConsumptionClp extends BaseModelImpl<Consumption>
 
 	@Override
 	public void setPrimaryKeyObj(Serializable primaryKeyObj) {
-		setPrimaryKey(((Integer)primaryKeyObj).intValue());
+		setPrimaryKey(((Long)primaryKeyObj).longValue());
 	}
 
 	@Override
@@ -87,7 +87,7 @@ public class ConsumptionClp extends BaseModelImpl<Consumption>
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Integer ConsumptionId = (Integer)attributes.get("ConsumptionId");
+		Long ConsumptionId = (Long)attributes.get("ConsumptionId");
 
 		if (ConsumptionId != null) {
 			setConsumptionId(ConsumptionId);
@@ -131,19 +131,19 @@ public class ConsumptionClp extends BaseModelImpl<Consumption>
 	}
 
 	@Override
-	public int getConsumptionId() {
+	public long getConsumptionId() {
 		return _ConsumptionId;
 	}
 
 	@Override
-	public void setConsumptionId(int ConsumptionId) {
+	public void setConsumptionId(long ConsumptionId) {
 		_ConsumptionId = ConsumptionId;
 
 		if (_consumptionRemoteModel != null) {
 			try {
 				Class<?> clazz = _consumptionRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setConsumptionId", int.class);
+				Method method = clazz.getMethod("setConsumptionId", long.class);
 
 				method.invoke(_consumptionRemoteModel, ConsumptionId);
 			}
@@ -373,7 +373,7 @@ public class ConsumptionClp extends BaseModelImpl<Consumption>
 
 	@Override
 	public int compareTo(Consumption consumption) {
-		int primaryKey = consumption.getPrimaryKey();
+		long primaryKey = consumption.getPrimaryKey();
 
 		if (getPrimaryKey() < primaryKey) {
 			return -1;
@@ -398,7 +398,7 @@ public class ConsumptionClp extends BaseModelImpl<Consumption>
 
 		ConsumptionClp consumption = (ConsumptionClp)obj;
 
-		int primaryKey = consumption.getPrimaryKey();
+		long primaryKey = consumption.getPrimaryKey();
 
 		if (getPrimaryKey() == primaryKey) {
 			return true;
@@ -410,7 +410,7 @@ public class ConsumptionClp extends BaseModelImpl<Consumption>
 
 	@Override
 	public int hashCode() {
-		return getPrimaryKey();
+		return (int)getPrimaryKey();
 	}
 
 	@Override
@@ -478,7 +478,7 @@ public class ConsumptionClp extends BaseModelImpl<Consumption>
 		return sb.toString();
 	}
 
-	private int _ConsumptionId;
+	private long _ConsumptionId;
 	private int _UserId;
 	private int _FoodId;
 	private Date _Date;

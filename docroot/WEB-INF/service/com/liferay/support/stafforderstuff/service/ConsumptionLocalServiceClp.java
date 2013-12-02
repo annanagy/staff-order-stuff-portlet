@@ -33,11 +33,11 @@ public class ConsumptionLocalServiceClp implements ConsumptionLocalService {
 
 		_methodName1 = "createConsumption";
 
-		_methodParameterTypes1 = new String[] { "int" };
+		_methodParameterTypes1 = new String[] { "long" };
 
 		_methodName2 = "deleteConsumption";
 
-		_methodParameterTypes2 = new String[] { "int" };
+		_methodParameterTypes2 = new String[] { "long" };
 
 		_methodName3 = "deleteConsumption";
 
@@ -83,11 +83,11 @@ public class ConsumptionLocalServiceClp implements ConsumptionLocalService {
 
 		_methodName10 = "fetchConsumption";
 
-		_methodParameterTypes10 = new String[] { "int" };
+		_methodParameterTypes10 = new String[] { "long" };
 
 		_methodName11 = "getConsumption";
 
-		_methodParameterTypes11 = new String[] { "int" };
+		_methodParameterTypes11 = new String[] { "long" };
 
 		_methodName12 = "getPersistedModel";
 
@@ -148,7 +148,7 @@ public class ConsumptionLocalServiceClp implements ConsumptionLocalService {
 
 	@Override
 	public com.liferay.support.stafforderstuff.model.Consumption createConsumption(
-		int ConsumptionId) {
+		long ConsumptionId) {
 		Object returnObj = null;
 
 		try {
@@ -172,7 +172,7 @@ public class ConsumptionLocalServiceClp implements ConsumptionLocalService {
 
 	@Override
 	public com.liferay.support.stafforderstuff.model.Consumption deleteConsumption(
-		int ConsumptionId)
+		long ConsumptionId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
@@ -433,7 +433,7 @@ public class ConsumptionLocalServiceClp implements ConsumptionLocalService {
 
 	@Override
 	public com.liferay.support.stafforderstuff.model.Consumption fetchConsumption(
-		int ConsumptionId)
+		long ConsumptionId)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
@@ -462,7 +462,7 @@ public class ConsumptionLocalServiceClp implements ConsumptionLocalService {
 
 	@Override
 	public com.liferay.support.stafforderstuff.model.Consumption getConsumption(
-		int ConsumptionId)
+		long ConsumptionId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;

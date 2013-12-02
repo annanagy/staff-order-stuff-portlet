@@ -48,28 +48,28 @@ public interface FoodModel extends BaseModel<Food> {
 	 *
 	 * @return the primary key of this food
 	 */
-	public int getPrimaryKey();
+	public long getPrimaryKey();
 
 	/**
 	 * Sets the primary key of this food.
 	 *
 	 * @param primaryKey the primary key of this food
 	 */
-	public void setPrimaryKey(int primaryKey);
+	public void setPrimaryKey(long primaryKey);
 
 	/**
 	 * Returns the food ID of this food.
 	 *
 	 * @return the food ID of this food
 	 */
-	public int getFoodId();
+	public long getFoodId();
 
 	/**
 	 * Sets the food ID of this food.
 	 *
 	 * @param FoodId the food ID of this food
 	 */
-	public void setFoodId(int FoodId);
+	public void setFoodId(long FoodId);
 
 	/**
 	 * Returns the company ID of this food.

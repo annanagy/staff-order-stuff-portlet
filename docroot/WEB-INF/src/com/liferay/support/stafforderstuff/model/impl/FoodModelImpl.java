@@ -21,6 +21,10 @@ import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.model.impl.BaseModelImpl;
+import com.liferay.portal.service.ServiceContext;
+
+import com.liferay.portlet.expando.model.ExpandoBridge;
+import com.liferay.portlet.expando.util.ExpandoBridgeFactoryUtil;
 
 import com.liferay.support.stafforderstuff.model.Food;
 import com.liferay.support.stafforderstuff.model.FoodModel;
@@ -53,7 +57,7 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 	 */
 	public static final String TABLE_NAME = "StaffOrderStuff_Food";
 	public static final Object[][] TABLE_COLUMNS = {
-			{ "FoodId", Types.INTEGER },
+			{ "FoodId", Types.BIGINT },
 			{ "CompanyId", Types.BIGINT },
 			{ "GroupId", Types.BIGINT },
 			{ "Name", Types.VARCHAR },
@@ -61,7 +65,7 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 			{ "Quantity", Types.DOUBLE },
 			{ "Unit", Types.VARCHAR }
 		};
-	public static final String TABLE_SQL_CREATE = "create table StaffOrderStuff_Food (FoodId INTEGER not null primary key,CompanyId LONG,GroupId LONG,Name VARCHAR(75) null,Price DOUBLE,Quantity DOUBLE,Unit VARCHAR(75) null)";
+	public static final String TABLE_SQL_CREATE = "create table StaffOrderStuff_Food (FoodId LONG not null primary key,CompanyId LONG,GroupId LONG,Name VARCHAR(75) null,Price DOUBLE,Quantity DOUBLE,Unit VARCHAR(75) null)";
 	public static final String TABLE_SQL_DROP = "drop table StaffOrderStuff_Food";
 	public static final String ORDER_BY_JPQL = " ORDER BY food.FoodId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY StaffOrderStuff_Food.FoodId ASC";
@@ -86,12 +90,12 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 	}
 
 	@Override
-	public int getPrimaryKey() {
+	public long getPrimaryKey() {
 		return _FoodId;
 	}
 
 	@Override
-	public void setPrimaryKey(int primaryKey) {
+	public void setPrimaryKey(long primaryKey) {
 		setFoodId(primaryKey);
 	}
 
@@ -102,7 +106,7 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 
 	@Override
 	public void setPrimaryKeyObj(Serializable primaryKeyObj) {
-		setPrimaryKey(((Integer)primaryKeyObj).intValue());
+		setPrimaryKey(((Long)primaryKeyObj).longValue());
 	}
 
 	@Override
@@ -132,7 +136,7 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Integer FoodId = (Integer)attributes.get("FoodId");
+		Long FoodId = (Long)attributes.get("FoodId");
 
 		if (FoodId != null) {
 			setFoodId(FoodId);
@@ -176,12 +180,12 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 	}
 
 	@Override
-	public int getFoodId() {
+	public long getFoodId() {
 		return _FoodId;
 	}
 
 	@Override
-	public void setFoodId(int FoodId) {
+	public void setFoodId(long FoodId) {
 		_FoodId = FoodId;
 	}
 
@@ -272,6 +276,19 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 	}
 
 	@Override
+	public ExpandoBridge getExpandoBridge() {
+		return ExpandoBridgeFactoryUtil.getExpandoBridge(0,
+			Food.class.getName(), getPrimaryKey());
+	}
+
+	@Override
+	public void setExpandoBridgeAttributes(ServiceContext serviceContext) {
+		ExpandoBridge expandoBridge = getExpandoBridge();
+
+		expandoBridge.setAttributes(serviceContext);
+	}
+
+	@Override
 	public Food toEscapedModel() {
 		if (_escapedModel == null) {
 			_escapedModel = (Food)ProxyUtil.newProxyInstance(_classLoader,
@@ -300,7 +317,7 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 
 	@Override
 	public int compareTo(Food food) {
-		int primaryKey = food.getPrimaryKey();
+		long primaryKey = food.getPrimaryKey();
 
 		if (getPrimaryKey() < primaryKey) {
 			return -1;
@@ -325,7 +342,7 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 
 		Food food = (Food)obj;
 
-		int primaryKey = food.getPrimaryKey();
+		long primaryKey = food.getPrimaryKey();
 
 		if (getPrimaryKey() == primaryKey) {
 			return true;
@@ -337,7 +354,7 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 
 	@Override
 	public int hashCode() {
-		return getPrimaryKey();
+		return (int)getPrimaryKey();
 	}
 
 	@Override
@@ -451,7 +468,7 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 
 	private static ClassLoader _classLoader = Food.class.getClassLoader();
 	private static Class<?>[] _escapedModelInterfaces = new Class[] { Food.class };
-	private int _FoodId;
+	private long _FoodId;
 	private long _CompanyId;
 	private long _GroupId;
 	private long _originalGroupId;

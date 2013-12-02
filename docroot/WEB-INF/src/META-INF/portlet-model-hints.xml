@@ -2,7 +2,7 @@
 
 <model-hints>
 	<model name="com.liferay.support.stafforderstuff.model.Consumption">
-		<field name="ConsumptionId" type="int" />
+		<field name="ConsumptionId" type="long" />
 		<field name="UserId" type="int" />
 		<field name="FoodId" type="int" />
 		<field name="Date" type="Date" />
@@ -11,7 +11,7 @@
 		<field name="Status" type="int" />
 	</model>
 	<model name="com.liferay.support.stafforderstuff.model.Food">
-		<field name="FoodId" type="int" />
+		<field name="FoodId" type="long" />
 		<field name="CompanyId" type="long" />
 		<field name="GroupId" type="long" />
 		<field name="Name" type="String" />

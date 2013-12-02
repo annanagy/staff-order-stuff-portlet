@@ -81,19 +81,19 @@ public class ConsumptionSoap implements Serializable {
 	public ConsumptionSoap() {
 	}
 
-	public int getPrimaryKey() {
+	public long getPrimaryKey() {
 		return _ConsumptionId;
 	}
 
-	public void setPrimaryKey(int pk) {
+	public void setPrimaryKey(long pk) {
 		setConsumptionId(pk);
 	}
 
-	public int getConsumptionId() {
+	public long getConsumptionId() {
 		return _ConsumptionId;
 	}
 
-	public void setConsumptionId(int ConsumptionId) {
+	public void setConsumptionId(long ConsumptionId) {
 		_ConsumptionId = ConsumptionId;
 	}
 
@@ -145,7 +145,7 @@ public class ConsumptionSoap implements Serializable {
 		_Status = Status;
 	}
 
-	private int _ConsumptionId;
+	private long _ConsumptionId;
 	private int _UserId;
 	private int _FoodId;
 	private Date _Date;

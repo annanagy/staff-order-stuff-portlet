@@ -61,7 +61,7 @@ public class FoodWrapper implements Food, ModelWrapper<Food> {
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Integer FoodId = (Integer)attributes.get("FoodId");
+		Long FoodId = (Long)attributes.get("FoodId");
 
 		if (FoodId != null) {
 			setFoodId(FoodId);
@@ -110,7 +110,7 @@ public class FoodWrapper implements Food, ModelWrapper<Food> {
 	* @return the primary key of this food
 	*/
 	@Override
-	public int getPrimaryKey() {
+	public long getPrimaryKey() {
 		return _food.getPrimaryKey();
 	}
 
@@ -120,7 +120,7 @@ public class FoodWrapper implements Food, ModelWrapper<Food> {
 	* @param primaryKey the primary key of this food
 	*/
 	@Override
-	public void setPrimaryKey(int primaryKey) {
+	public void setPrimaryKey(long primaryKey) {
 		_food.setPrimaryKey(primaryKey);
 	}
 
@@ -130,7 +130,7 @@ public class FoodWrapper implements Food, ModelWrapper<Food> {
 	* @return the food ID of this food
 	*/
 	@Override
-	public int getFoodId() {
+	public long getFoodId() {
 		return _food.getFoodId();
 	}
 
@@ -140,7 +140,7 @@ public class FoodWrapper implements Food, ModelWrapper<Food> {
 	* @param FoodId the food ID of this food
 	*/
 	@Override
-	public void setFoodId(int FoodId) {
+	public void setFoodId(long FoodId) {
 		_food.setFoodId(FoodId);
 	}
 
