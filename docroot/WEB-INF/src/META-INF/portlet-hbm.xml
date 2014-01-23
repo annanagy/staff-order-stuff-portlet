@@ -2,20 +2,8 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping default-lazy="false" auto-import="false">
-	<import class="com.liferay.support.stafforderstuff.model.Consumption" />
 	<import class="com.liferay.support.stafforderstuff.model.Food" />
-	<class name="com.liferay.support.stafforderstuff.model.impl.ConsumptionImpl" table="StaffOrderStuff_Consumption">
-		<cache usage="read-write" />
-		<id name="ConsumptionId" type="long">
-			<generator class="assigned" />
-		</id>
-		<property name="UserId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="FoodId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="Date" type="org.hibernate.type.TimestampType" />
-		<property name="Quantity" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
-		<property name="Unit" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="Status" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-	</class>
+	<import class="com.liferay.support.stafforderstuff.model.Stock" />
 	<class name="com.liferay.support.stafforderstuff.model.impl.FoodImpl" table="StaffOrderStuff_Food">
 		<cache usage="read-write" />
 		<id name="FoodId" type="long">
@@ -25,7 +13,20 @@
 		<property name="GroupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="Name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="Price" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property name="Unit" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.liferay.support.stafforderstuff.model.impl.StockImpl" table="StaffOrderStuff_Stock">
+		<cache usage="read-write" />
+		<id name="StockId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="CompanyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="GroupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="UserId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="FoodId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="FoodName" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 		<property name="Quantity" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
 		<property name="Unit" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="Status" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 	</class>
 </hibernate-mapping>

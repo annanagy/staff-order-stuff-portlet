@@ -77,7 +77,6 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 		attributes.put("GroupId", getGroupId());
 		attributes.put("Name", getName());
 		attributes.put("Price", getPrice());
-		attributes.put("Quantity", getQuantity());
 		attributes.put("Unit", getUnit());
 
 		return attributes;
@@ -113,12 +112,6 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 
 		if (Price != null) {
 			setPrice(Price);
-		}
-
-		Double Quantity = (Double)attributes.get("Quantity");
-
-		if (Quantity != null) {
-			setQuantity(Quantity);
 		}
 
 		String Unit = (String)attributes.get("Unit");
@@ -244,29 +237,6 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 	}
 
 	@Override
-	public double getQuantity() {
-		return _Quantity;
-	}
-
-	@Override
-	public void setQuantity(double Quantity) {
-		_Quantity = Quantity;
-
-		if (_foodRemoteModel != null) {
-			try {
-				Class<?> clazz = _foodRemoteModel.getClass();
-
-				Method method = clazz.getMethod("setQuantity", double.class);
-
-				method.invoke(_foodRemoteModel, Quantity);
-			}
-			catch (Exception e) {
-				throw new UnsupportedOperationException(e);
-			}
-		}
-	}
-
-	@Override
 	public String getUnit() {
 		return _Unit;
 	}
@@ -363,7 +333,6 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 		clone.setGroupId(getGroupId());
 		clone.setName(getName());
 		clone.setPrice(getPrice());
-		clone.setQuantity(getQuantity());
 		clone.setUnit(getUnit());
 
 		return clone;
@@ -413,7 +382,7 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(15);
+		StringBundler sb = new StringBundler(13);
 
 		sb.append("{FoodId=");
 		sb.append(getFoodId());
@@ -425,8 +394,6 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 		sb.append(getName());
 		sb.append(", Price=");
 		sb.append(getPrice());
-		sb.append(", Quantity=");
-		sb.append(getQuantity());
 		sb.append(", Unit=");
 		sb.append(getUnit());
 		sb.append("}");
@@ -436,7 +403,7 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(25);
+		StringBundler sb = new StringBundler(22);
 
 		sb.append("<model><model-name>");
 		sb.append("com.liferay.support.stafforderstuff.model.Food");
@@ -463,10 +430,6 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 		sb.append(getPrice());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>Quantity</column-name><column-value><![CDATA[");
-		sb.append(getQuantity());
-		sb.append("]]></column-value></column>");
-		sb.append(
 			"<column><column-name>Unit</column-name><column-value><![CDATA[");
 		sb.append(getUnit());
 		sb.append("]]></column-value></column>");
@@ -481,7 +444,6 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 	private long _GroupId;
 	private String _Name;
 	private double _Price;
-	private double _Quantity;
 	private String _Unit;
 	private BaseModel<?> _foodRemoteModel;
 }

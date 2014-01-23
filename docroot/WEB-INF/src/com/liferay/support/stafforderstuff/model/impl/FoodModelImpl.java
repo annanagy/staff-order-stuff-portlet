@@ -62,10 +62,9 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 			{ "GroupId", Types.BIGINT },
 			{ "Name", Types.VARCHAR },
 			{ "Price", Types.DOUBLE },
-			{ "Quantity", Types.DOUBLE },
 			{ "Unit", Types.VARCHAR }
 		};
-	public static final String TABLE_SQL_CREATE = "create table StaffOrderStuff_Food (FoodId LONG not null primary key,CompanyId LONG,GroupId LONG,Name VARCHAR(75) null,Price DOUBLE,Quantity DOUBLE,Unit VARCHAR(75) null)";
+	public static final String TABLE_SQL_CREATE = "create table StaffOrderStuff_Food (FoodId LONG not null primary key,CompanyId LONG,GroupId LONG,Name VARCHAR(75) null,Price DOUBLE,Unit VARCHAR(75) null)";
 	public static final String TABLE_SQL_DROP = "drop table StaffOrderStuff_Food";
 	public static final String ORDER_BY_JPQL = " ORDER BY food.FoodId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY StaffOrderStuff_Food.FoodId ASC";
@@ -128,7 +127,6 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 		attributes.put("GroupId", getGroupId());
 		attributes.put("Name", getName());
 		attributes.put("Price", getPrice());
-		attributes.put("Quantity", getQuantity());
 		attributes.put("Unit", getUnit());
 
 		return attributes;
@@ -164,12 +162,6 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 
 		if (Price != null) {
 			setPrice(Price);
-		}
-
-		Double Quantity = (Double)attributes.get("Quantity");
-
-		if (Quantity != null) {
-			setQuantity(Quantity);
 		}
 
 		String Unit = (String)attributes.get("Unit");
@@ -247,16 +239,6 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 	}
 
 	@Override
-	public double getQuantity() {
-		return _Quantity;
-	}
-
-	@Override
-	public void setQuantity(double Quantity) {
-		_Quantity = Quantity;
-	}
-
-	@Override
 	public String getUnit() {
 		if (_Unit == null) {
 			return StringPool.BLANK;
@@ -307,7 +289,6 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 		foodImpl.setGroupId(getGroupId());
 		foodImpl.setName(getName());
 		foodImpl.setPrice(getPrice());
-		foodImpl.setQuantity(getQuantity());
 		foodImpl.setUnit(getUnit());
 
 		foodImpl.resetOriginalValues();
@@ -388,8 +369,6 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 
 		foodCacheModel.Price = getPrice();
 
-		foodCacheModel.Quantity = getQuantity();
-
 		foodCacheModel.Unit = getUnit();
 
 		String Unit = foodCacheModel.Unit;
@@ -403,7 +382,7 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(15);
+		StringBundler sb = new StringBundler(13);
 
 		sb.append("{FoodId=");
 		sb.append(getFoodId());
@@ -415,8 +394,6 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 		sb.append(getName());
 		sb.append(", Price=");
 		sb.append(getPrice());
-		sb.append(", Quantity=");
-		sb.append(getQuantity());
 		sb.append(", Unit=");
 		sb.append(getUnit());
 		sb.append("}");
@@ -426,7 +403,7 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(25);
+		StringBundler sb = new StringBundler(22);
 
 		sb.append("<model><model-name>");
 		sb.append("com.liferay.support.stafforderstuff.model.Food");
@@ -453,10 +430,6 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 		sb.append(getPrice());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>Quantity</column-name><column-value><![CDATA[");
-		sb.append(getQuantity());
-		sb.append("]]></column-value></column>");
-		sb.append(
 			"<column><column-name>Unit</column-name><column-value><![CDATA[");
 		sb.append(getUnit());
 		sb.append("]]></column-value></column>");
@@ -475,7 +448,6 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 	private boolean _setOriginalGroupId;
 	private String _Name;
 	private double _Price;
-	private double _Quantity;
 	private String _Unit;
 	private long _columnBitmask;
 	private Food _escapedModel;

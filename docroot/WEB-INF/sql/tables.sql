@@ -14,6 +14,17 @@ create table StaffOrderStuff_Food (
 	GroupId LONG,
 	Name VARCHAR(75) null,
 	Price DOUBLE,
-	Quantity DOUBLE,
 	Unit VARCHAR(75) null
+);
+
+create table StaffOrderStuff_Stock (
+	StockId LONG not null primary key,
+	CompanyId LONG,
+	GroupId LONG,
+	UserId INTEGER,
+	FoodId INTEGER,
+	FoodName INTEGER,
+	Quantity DOUBLE,
+	Unit VARCHAR(75) null,
+	Status INTEGER
 );

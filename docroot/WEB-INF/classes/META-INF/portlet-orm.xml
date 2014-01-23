@@ -7,14 +7,27 @@
 			<access>PROPERTY</access>
 		</persistence-unit-defaults>
 	</persistence-unit-metadata>
-	<mapped-superclass class="com.liferay.support.stafforderstuff.model.impl.ConsumptionModelImpl">
+	<mapped-superclass class="com.liferay.support.stafforderstuff.model.impl.FoodModelImpl">
 		<attributes>
-			<id name="ConsumptionId" />
+			<id name="FoodId" />
+			<basic name="CompanyId" />
+			<basic name="GroupId" />
+			<basic name="Name" />
+			<basic name="Price" />
+			<basic name="Unit" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.liferay.support.stafforderstuff.model.impl.StockModelImpl">
+		<attributes>
+			<id name="StockId" />
+			<basic name="CompanyId" />
+			<basic name="GroupId" />
 			<basic name="UserId" />
 			<basic name="FoodId" />
-			<basic name="Date">
-				<temporal>TIMESTAMP</temporal>
-			</basic>
+			<basic name="FoodName" />
 			<basic name="Quantity" />
 			<basic name="Unit" />
 			<basic name="Status" />
@@ -23,26 +36,12 @@
 			<transient name="primaryKeyObj" />
 		</attributes>
 	</mapped-superclass>
-	<mapped-superclass class="com.liferay.support.stafforderstuff.model.impl.FoodModelImpl">
-		<attributes>
-			<id name="FoodId" />
-			<basic name="CompanyId" />
-			<basic name="GroupId" />
-			<basic name="Name" />
-			<basic name="Price" />
-			<basic name="Quantity" />
-			<basic name="Unit" />
-			<transient name="modelAttributes" />
-			<transient name="primaryKey" />
-			<transient name="primaryKeyObj" />
-		</attributes>
-	</mapped-superclass>
-	<entity class="com.liferay.support.stafforderstuff.model.impl.ConsumptionImpl" name="Consumption">
-		<table name="StaffOrderStuff_Consumption" />
-		<attributes />
-	</entity>
 	<entity class="com.liferay.support.stafforderstuff.model.impl.FoodImpl" name="Food">
 		<table name="StaffOrderStuff_Food" />
+		<attributes />
+	</entity>
+	<entity class="com.liferay.support.stafforderstuff.model.impl.StockImpl" name="Stock">
+		<table name="StaffOrderStuff_Stock" />
 		<attributes />
 	</entity>
 </entity-mappings>

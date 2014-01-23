@@ -129,20 +129,6 @@ public interface FoodModel extends BaseModel<Food> {
 	public void setPrice(double Price);
 
 	/**
-	 * Returns the quantity of this food.
-	 *
-	 * @return the quantity of this food
-	 */
-	public double getQuantity();
-
-	/**
-	 * Sets the quantity of this food.
-	 *
-	 * @param Quantity the quantity of this food
-	 */
-	public void setQuantity(double Quantity);
-
-	/**
 	 * Returns the unit of this food.
 	 *
 	 * @return the unit of this food

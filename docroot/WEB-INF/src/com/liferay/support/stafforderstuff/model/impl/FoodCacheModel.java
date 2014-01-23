@@ -35,7 +35,7 @@ import java.io.ObjectOutput;
 public class FoodCacheModel implements CacheModel<Food>, Externalizable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(15);
+		StringBundler sb = new StringBundler(13);
 
 		sb.append("{FoodId=");
 		sb.append(FoodId);
@@ -47,8 +47,6 @@ public class FoodCacheModel implements CacheModel<Food>, Externalizable {
 		sb.append(Name);
 		sb.append(", Price=");
 		sb.append(Price);
-		sb.append(", Quantity=");
-		sb.append(Quantity);
 		sb.append(", Unit=");
 		sb.append(Unit);
 		sb.append("}");
@@ -72,7 +70,6 @@ public class FoodCacheModel implements CacheModel<Food>, Externalizable {
 		}
 
 		foodImpl.setPrice(Price);
-		foodImpl.setQuantity(Quantity);
 
 		if (Unit == null) {
 			foodImpl.setUnit(StringPool.BLANK);
@@ -93,7 +90,6 @@ public class FoodCacheModel implements CacheModel<Food>, Externalizable {
 		GroupId = objectInput.readLong();
 		Name = objectInput.readUTF();
 		Price = objectInput.readDouble();
-		Quantity = objectInput.readDouble();
 		Unit = objectInput.readUTF();
 	}
 
@@ -112,7 +108,6 @@ public class FoodCacheModel implements CacheModel<Food>, Externalizable {
 		}
 
 		objectOutput.writeDouble(Price);
-		objectOutput.writeDouble(Quantity);
 
 		if (Unit == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
@@ -127,6 +122,5 @@ public class FoodCacheModel implements CacheModel<Food>, Externalizable {
 	public long GroupId;
 	public String Name;
 	public double Price;
-	public double Quantity;
 	public String Unit;
 }

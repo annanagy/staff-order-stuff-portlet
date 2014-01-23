@@ -53,7 +53,6 @@ public class FoodWrapper implements Food, ModelWrapper<Food> {
 		attributes.put("GroupId", getGroupId());
 		attributes.put("Name", getName());
 		attributes.put("Price", getPrice());
-		attributes.put("Quantity", getQuantity());
 		attributes.put("Unit", getUnit());
 
 		return attributes;
@@ -89,12 +88,6 @@ public class FoodWrapper implements Food, ModelWrapper<Food> {
 
 		if (Price != null) {
 			setPrice(Price);
-		}
-
-		Double Quantity = (Double)attributes.get("Quantity");
-
-		if (Quantity != null) {
-			setQuantity(Quantity);
 		}
 
 		String Unit = (String)attributes.get("Unit");
@@ -222,26 +215,6 @@ public class FoodWrapper implements Food, ModelWrapper<Food> {
 	@Override
 	public void setPrice(double Price) {
 		_food.setPrice(Price);
-	}
-
-	/**
-	* Returns the quantity of this food.
-	*
-	* @return the quantity of this food
-	*/
-	@Override
-	public double getQuantity() {
-		return _food.getQuantity();
-	}
-
-	/**
-	* Sets the quantity of this food.
-	*
-	* @param Quantity the quantity of this food
-	*/
-	@Override
-	public void setQuantity(double Quantity) {
-		_food.setQuantity(Quantity);
 	}
 
 	/**

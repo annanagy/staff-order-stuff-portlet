@@ -1,22 +1,23 @@
 <?xml version="1.0"?>
 
 <model-hints>
-	<model name="com.liferay.support.stafforderstuff.model.Consumption">
-		<field name="ConsumptionId" type="long" />
-		<field name="UserId" type="int" />
-		<field name="FoodId" type="int" />
-		<field name="Date" type="Date" />
-		<field name="Quantity" type="double" />
-		<field name="Unit" type="String" />
-		<field name="Status" type="int" />
-	</model>
 	<model name="com.liferay.support.stafforderstuff.model.Food">
 		<field name="FoodId" type="long" />
 		<field name="CompanyId" type="long" />
 		<field name="GroupId" type="long" />
 		<field name="Name" type="String" />
 		<field name="Price" type="double" />
+		<field name="Unit" type="String" />
+	</model>
+	<model name="com.liferay.support.stafforderstuff.model.Stock">
+		<field name="StockId" type="long" />
+		<field name="CompanyId" type="long" />
+		<field name="GroupId" type="long" />
+		<field name="UserId" type="int" />
+		<field name="FoodId" type="int" />
+		<field name="FoodName" type="int" />
 		<field name="Quantity" type="double" />
 		<field name="Unit" type="String" />
+		<field name="Status" type="int" />
 	</model>
 </model-hints>

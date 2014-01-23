@@ -71,8 +71,8 @@ public class FoodLocalServiceImpl extends FoodLocalServiceBaseImpl {
 		food.setName(name);
 		//double price = (short) foodId; // ;-)
 
-		double quantity = 1;
-		food.setQuantity(quantity);
+//		double quantity = 1;
+//		food.setQuantity(quantity);
 
 		String unit = "pcs";
 		food.setUnit(unit);

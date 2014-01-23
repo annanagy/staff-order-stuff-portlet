@@ -824,7 +824,6 @@ public class FoodPersistenceImpl extends BasePersistenceImpl<Food>
 		foodImpl.setGroupId(food.getGroupId());
 		foodImpl.setName(food.getName());
 		foodImpl.setPrice(food.getPrice());
-		foodImpl.setQuantity(food.getQuantity());
 		foodImpl.setUnit(food.getUnit());
 
 		return foodImpl;
