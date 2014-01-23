@@ -4,6 +4,7 @@ import com.liferay.counter.service.CounterLocalServiceUtil;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.support.stafforderstuff.model.Food;
 import com.liferay.support.stafforderstuff.service.FoodLocalServiceUtil;
 import com.liferay.support.stafforderstuff.service.impl.FoodLocalServiceImpl;
@@ -32,7 +33,7 @@ public class StaffOrderStuff extends MVCPortlet {
 
 		}
 
-		public void processAction(ActionRequest request, ActionResponse response)
+		/*public void processAction(ActionRequest request, ActionResponse response)
 				throws IOException, PortletException {
 
 				_log.error("Inside processAction");
@@ -43,6 +44,16 @@ public class StaffOrderStuff extends MVCPortlet {
 				// Verify if the sendRedirect is necessary...
 				sendRedirect(request, response);
 
+		}*/
+
+		public void addDummyFood(ActionRequest request, ActionResponse response) 
+				throws Exception {
+			_log.error("Inside addDummyFood");
+
+			String name = ParamUtil.getString(request, "name");
+			_log.error("Received name: " + name);
+
+			//FoodLocalServiceUtil.addDummyFood(name);
 		}
 
 		private static Log _log = LogFactoryUtil.getLog(StaffOrderStuff.class);
