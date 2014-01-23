@@ -283,6 +283,12 @@ public class FoodLocalServiceWrapper implements FoodLocalService,
 	}
 
 	@Override
+	public void addFood(java.lang.String name, double price,
+		java.lang.String unit) {
+		_foodLocalService.addFood(name, price, unit);
+	}
+
+	@Override
 	public void addDummyFood() {
 		_foodLocalService.addDummyFood();
 	}

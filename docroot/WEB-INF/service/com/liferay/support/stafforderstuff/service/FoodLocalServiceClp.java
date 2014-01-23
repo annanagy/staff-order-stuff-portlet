@@ -114,13 +114,19 @@ public class FoodLocalServiceClp implements FoodLocalService {
 
 		_methodParameterTypes17 = new String[] { "java.lang.String" };
 
-		_methodName19 = "addDummyFood";
+		_methodName19 = "addFood";
 
-		_methodParameterTypes19 = new String[] {  };
+		_methodParameterTypes19 = new String[] {
+				"java.lang.String", "double", "java.lang.String"
+			};
 
-		_methodName20 = "createDummyFood";
+		_methodName20 = "addDummyFood";
 
 		_methodParameterTypes20 = new String[] {  };
+
+		_methodName21 = "createDummyFood";
+
+		_methodParameterTypes21 = new String[] {  };
 	}
 
 	@Override
@@ -672,10 +678,37 @@ public class FoodLocalServiceClp implements FoodLocalService {
 	}
 
 	@Override
-	public void addDummyFood() {
+	public void addFood(java.lang.String name, double price,
+		java.lang.String unit) {
 		try {
 			_invokableLocalService.invokeMethod(_methodName19,
-				_methodParameterTypes19, new Object[] {  });
+				_methodParameterTypes19,
+				new Object[] {
+					ClpSerializer.translateInput(name),
+					
+				price,
+					
+				ClpSerializer.translateInput(unit)
+				});
+		}
+		catch (Throwable t) {
+			t = ClpSerializer.translateThrowable(t);
+
+			if (t instanceof RuntimeException) {
+				throw (RuntimeException)t;
+			}
+			else {
+				throw new RuntimeException(t.getClass().getName() +
+					" is not a valid exception");
+			}
+		}
+	}
+
+	@Override
+	public void addDummyFood() {
+		try {
+			_invokableLocalService.invokeMethod(_methodName20,
+				_methodParameterTypes20, new Object[] {  });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -696,8 +729,8 @@ public class FoodLocalServiceClp implements FoodLocalService {
 		Object returnObj = null;
 
 		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName20,
-					_methodParameterTypes20, new Object[] {  });
+			returnObj = _invokableLocalService.invokeMethod(_methodName21,
+					_methodParameterTypes21, new Object[] {  });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -759,4 +792,6 @@ public class FoodLocalServiceClp implements FoodLocalService {
 	private String[] _methodParameterTypes19;
 	private String _methodName20;
 	private String[] _methodParameterTypes20;
+	private String _methodName21;
+	private String[] _methodParameterTypes21;
 }

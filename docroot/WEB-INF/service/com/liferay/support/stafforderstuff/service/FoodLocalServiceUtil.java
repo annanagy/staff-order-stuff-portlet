@@ -274,6 +274,11 @@ public class FoodLocalServiceUtil {
 		return getService().invokeMethod(name, parameterTypes, arguments);
 	}
 
+	public static void addFood(java.lang.String name, double price,
+		java.lang.String unit) {
+		getService().addFood(name, price, unit);
+	}
+
 	public static void addDummyFood() {
 		getService().addDummyFood();
 	}

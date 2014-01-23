@@ -20,6 +20,7 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.support.stafforderstuff.StaffOrderStuff;
 import com.liferay.support.stafforderstuff.model.Food;
+import com.liferay.support.stafforderstuff.model.Stock;
 import com.liferay.support.stafforderstuff.service.base.FoodLocalServiceBaseImpl;
 
 /**
@@ -42,7 +43,36 @@ public class FoodLocalServiceImpl extends FoodLocalServiceBaseImpl {
 	 *
 	 * Never reference this interface directly. Always use {@link com.liferay.support.stafforderstuff.service.FoodLocalServiceUtil} to access the food local service.
 	 */
-	
+
+	public void addFood(String name, double price, String unit) {
+
+		_log.error("Inside addFood()");
+
+		try {
+			_log.error("Inside addFood(name, price, unit)");
+			long foodId = CounterLocalServiceUtil.increment(Food.class.getName());
+			Food food = foodPersistence.create(foodId);
+
+			long companyId = 1;
+			food.setCompanyId(companyId);
+
+			long groupId = 1;
+			food.setGroupId(groupId);
+
+			food.setName(name);
+			food.setPrice(price);
+			food.setUnit(unit);
+
+			addFood(food);
+		}
+
+		catch (SystemException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+
 	public void addDummyFood() {
 
 		_log.error("Inside addDummyFood()");
@@ -80,24 +110,6 @@ public class FoodLocalServiceImpl extends FoodLocalServiceBaseImpl {
 		return food;
 	}
 	
-/*	public void addFood(int foodId, long companyId, long groupId,
-			String name, double price, double quantity, String unit) {
 
-			_log.error("Currently doing nothing in addFood(lotsofparams)");
-			//Copy pasted the relevant info from service.xml
-
-			//<column name="FoodId" type="long" primary="true"></column>
-			//<column name="CompanyId" type="long"></column>
-			//<column name="GroupId" type="long"></column>
-			//<column name="Name" type="String"></column>
-			//<column name="Price" type="double"></column>
-			//<column name="Quantity" type="double"></column>
-			//<column name="Unit" type="String"></column>
-
-			//User user = userPersistence.findByPrimaryKey(userId);
-
-			//
-	}
-*/
 	private static Log _log = LogFactoryUtil.getLog(FoodLocalServiceImpl.class);
 }

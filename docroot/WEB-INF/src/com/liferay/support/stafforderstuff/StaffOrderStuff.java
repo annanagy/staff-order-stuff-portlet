@@ -7,6 +7,7 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.support.stafforderstuff.model.Food;
 import com.liferay.support.stafforderstuff.service.FoodLocalServiceUtil;
+import com.liferay.support.stafforderstuff.service.StockLocalServiceUtil;
 import com.liferay.support.stafforderstuff.service.impl.FoodLocalServiceImpl;
 import com.liferay.util.bridges.mvc.MVCPortlet;
 
@@ -45,6 +46,29 @@ public class StaffOrderStuff extends MVCPortlet {
 				sendRedirect(request, response);
 
 		}*/
+
+		public void addFood(ActionRequest request, ActionResponse response)
+				throws Exception {
+			_log.error("Inside addFood");
+
+			String name = ParamUtil.getString(request, "name");
+			double price = ParamUtil.getDouble(request, "price");
+			String unit = ParamUtil.getString(request, "unit");
+
+			FoodLocalServiceUtil.addFood(name, price, unit);
+		}
+
+		public void addStock(ActionRequest request, ActionResponse response)
+				throws Exception {
+			_log.error("Inside addStock");
+
+			String name = ParamUtil.getString(request, "name");
+			long foodId = ParamUtil.getLong(request, "foodId");
+			double quantity = ParamUtil.getDouble(request, "quantity");
+			int status = ParamUtil.getInteger(request, "status");
+
+			StockLocalServiceUtil.addStock(name, foodId, quantity, status);
+		}
 
 		public void addDummyFood(ActionRequest request, ActionResponse response) 
 				throws Exception {
