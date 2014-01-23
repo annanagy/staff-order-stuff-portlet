@@ -247,6 +247,9 @@ public interface FoodLocalService extends BaseLocalService, InvokableLocalServic
 		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
 		throws java.lang.Throwable;
 
+	public void addFood(java.lang.String name, double price,
+		java.lang.String unit);
+
 	public void addDummyFood();
 
 	public com.liferay.support.stafforderstuff.model.Food createDummyFood()
