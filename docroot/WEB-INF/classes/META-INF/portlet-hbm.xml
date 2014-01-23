@@ -22,9 +22,10 @@
 		</id>
 		<property name="CompanyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="GroupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
-		<property name="UserId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="FoodId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="FoodName" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="UserId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="Name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="FoodId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="FoodName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="Quantity" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
 		<property name="Unit" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="Status" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />

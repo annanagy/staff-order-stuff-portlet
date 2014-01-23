@@ -21,9 +21,10 @@ create table StaffOrderStuff_Stock (
 	StockId LONG not null primary key,
 	CompanyId LONG,
 	GroupId LONG,
-	UserId INTEGER,
-	FoodId INTEGER,
-	FoodName INTEGER,
+	UserId LONG,
+	Name VARCHAR(75) null,
+	FoodId LONG,
+	FoodName VARCHAR(75) null,
 	Quantity DOUBLE,
 	Unit VARCHAR(75) null,
 	Status INTEGER

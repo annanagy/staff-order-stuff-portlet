@@ -26,6 +26,7 @@
 			<basic name="CompanyId" />
 			<basic name="GroupId" />
 			<basic name="UserId" />
+			<basic name="Name" />
 			<basic name="FoodId" />
 			<basic name="FoodName" />
 			<basic name="Quantity" />
@@ -34,6 +35,7 @@
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
 		</attributes>
 	</mapped-superclass>
 	<entity class="com.liferay.support.stafforderstuff.model.impl.FoodImpl" name="Food">

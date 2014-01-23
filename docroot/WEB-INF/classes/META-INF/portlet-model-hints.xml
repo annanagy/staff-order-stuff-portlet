@@ -13,9 +13,10 @@
 		<field name="StockId" type="long" />
 		<field name="CompanyId" type="long" />
 		<field name="GroupId" type="long" />
-		<field name="UserId" type="int" />
-		<field name="FoodId" type="int" />
-		<field name="FoodName" type="int" />
+		<field name="UserId" type="long" />
+		<field name="Name" type="String" />
+		<field name="FoodId" type="long" />
+		<field name="FoodName" type="String" />
 		<field name="Quantity" type="double" />
 		<field name="Unit" type="String" />
 		<field name="Status" type="int" />
