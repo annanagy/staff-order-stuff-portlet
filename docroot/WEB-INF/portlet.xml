@@ -20,7 +20,7 @@
 			<name>help-template</name>
 			<value>/html/stafforderstuff/help.jsp</value>
 		</init-param>
-		<init-param>
+		<!-- <init-param>
 			<name>about-template</name>
 			<value>/html/stafforderstuff/about.jsp</value>
 		</init-param>
@@ -39,18 +39,18 @@
 		<init-param>
 			<name>print-template</name>
 			<value>/html/stafforderstuff/print.jsp</value>
-		</init-param>
+		</init-param> -->
 		<expiration-cache>0</expiration-cache>
 		<supports>
 			<mime-type>text/html</mime-type>
 			<portlet-mode>view</portlet-mode>
 			<portlet-mode>edit</portlet-mode>
 			<portlet-mode>help</portlet-mode>
-			<portlet-mode>about</portlet-mode>
+			<!-- <portlet-mode>about</portlet-mode>
 			<portlet-mode>edit_defaults</portlet-mode>
 			<portlet-mode>edit_guest</portlet-mode>
 			<portlet-mode>preview</portlet-mode>
-			<portlet-mode>print</portlet-mode>
+			<portlet-mode>print</portlet-mode> -->
 		</supports>
 		<portlet-info>
 			<title>Staff Order Stuff</title>

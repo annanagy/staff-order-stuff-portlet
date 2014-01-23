@@ -52,7 +52,7 @@ public class ConsumptionLocalServiceWrapper implements ConsumptionLocalService,
 	*/
 	@Override
 	public com.liferay.support.stafforderstuff.model.Consumption createConsumption(
-		int ConsumptionId) {
+		long ConsumptionId) {
 		return _consumptionLocalService.createConsumption(ConsumptionId);
 	}
 
@@ -66,7 +66,7 @@ public class ConsumptionLocalServiceWrapper implements ConsumptionLocalService,
 	*/
 	@Override
 	public com.liferay.support.stafforderstuff.model.Consumption deleteConsumption(
-		int ConsumptionId)
+		long ConsumptionId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return _consumptionLocalService.deleteConsumption(ConsumptionId);
@@ -185,7 +185,7 @@ public class ConsumptionLocalServiceWrapper implements ConsumptionLocalService,
 
 	@Override
 	public com.liferay.support.stafforderstuff.model.Consumption fetchConsumption(
-		int ConsumptionId)
+		long ConsumptionId)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return _consumptionLocalService.fetchConsumption(ConsumptionId);
 	}
@@ -200,7 +200,7 @@ public class ConsumptionLocalServiceWrapper implements ConsumptionLocalService,
 	*/
 	@Override
 	public com.liferay.support.stafforderstuff.model.Consumption getConsumption(
-		int ConsumptionId)
+		long ConsumptionId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return _consumptionLocalService.getConsumption(ConsumptionId);

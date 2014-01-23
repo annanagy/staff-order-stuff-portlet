@@ -86,7 +86,7 @@ public abstract class ConsumptionLocalServiceBaseImpl
 	 * @return the new consumption
 	 */
 	@Override
-	public Consumption createConsumption(int ConsumptionId) {
+	public Consumption createConsumption(long ConsumptionId) {
 		return consumptionPersistence.create(ConsumptionId);
 	}
 
@@ -100,7 +100,7 @@ public abstract class ConsumptionLocalServiceBaseImpl
 	 */
 	@Indexable(type = IndexableType.DELETE)
 	@Override
-	public Consumption deleteConsumption(int ConsumptionId)
+	public Consumption deleteConsumption(long ConsumptionId)
 		throws PortalException, SystemException {
 		return consumptionPersistence.remove(ConsumptionId);
 	}
@@ -213,7 +213,7 @@ public abstract class ConsumptionLocalServiceBaseImpl
 	}
 
 	@Override
-	public Consumption fetchConsumption(int ConsumptionId)
+	public Consumption fetchConsumption(long ConsumptionId)
 		throws SystemException {
 		return consumptionPersistence.fetchByPrimaryKey(ConsumptionId);
 	}
@@ -227,7 +227,7 @@ public abstract class ConsumptionLocalServiceBaseImpl
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Consumption getConsumption(int ConsumptionId)
+	public Consumption getConsumption(long ConsumptionId)
 		throws PortalException, SystemException {
 		return consumptionPersistence.findByPrimaryKey(ConsumptionId);
 	}

@@ -87,7 +87,7 @@ public class ConsumptionPersistenceImpl extends BasePersistenceImpl<Consumption>
 			ConsumptionModelImpl.FINDER_CACHE_ENABLED, ConsumptionImpl.class,
 			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findByConsumptionId",
 			new String[] {
-				Integer.class.getName(),
+				Long.class.getName(),
 				
 			Integer.class.getName(), Integer.class.getName(),
 				OrderByComparator.class.getName()
@@ -96,12 +96,12 @@ public class ConsumptionPersistenceImpl extends BasePersistenceImpl<Consumption>
 		new FinderPath(ConsumptionModelImpl.ENTITY_CACHE_ENABLED,
 			ConsumptionModelImpl.FINDER_CACHE_ENABLED, ConsumptionImpl.class,
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByConsumptionId",
-			new String[] { Integer.class.getName() },
+			new String[] { Long.class.getName() },
 			ConsumptionModelImpl.CONSUMPTIONID_COLUMN_BITMASK);
 	public static final FinderPath FINDER_PATH_COUNT_BY_CONSUMPTIONID = new FinderPath(ConsumptionModelImpl.ENTITY_CACHE_ENABLED,
 			ConsumptionModelImpl.FINDER_CACHE_ENABLED, Long.class,
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByConsumptionId",
-			new String[] { Integer.class.getName() });
+			new String[] { Long.class.getName() });
 
 	/**
 	 * Returns all the consumptions where ConsumptionId = &#63;.
@@ -111,7 +111,7 @@ public class ConsumptionPersistenceImpl extends BasePersistenceImpl<Consumption>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public List<Consumption> findByConsumptionId(int ConsumptionId)
+	public List<Consumption> findByConsumptionId(long ConsumptionId)
 		throws SystemException {
 		return findByConsumptionId(ConsumptionId, QueryUtil.ALL_POS,
 			QueryUtil.ALL_POS, null);
@@ -131,7 +131,7 @@ public class ConsumptionPersistenceImpl extends BasePersistenceImpl<Consumption>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public List<Consumption> findByConsumptionId(int ConsumptionId, int start,
+	public List<Consumption> findByConsumptionId(long ConsumptionId, int start,
 		int end) throws SystemException {
 		return findByConsumptionId(ConsumptionId, start, end, null);
 	}
@@ -151,7 +151,7 @@ public class ConsumptionPersistenceImpl extends BasePersistenceImpl<Consumption>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public List<Consumption> findByConsumptionId(int ConsumptionId, int start,
+	public List<Consumption> findByConsumptionId(long ConsumptionId, int start,
 		int end, OrderByComparator orderByComparator) throws SystemException {
 		boolean pagination = true;
 		FinderPath finderPath = null;
@@ -262,7 +262,7 @@ public class ConsumptionPersistenceImpl extends BasePersistenceImpl<Consumption>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Consumption findByConsumptionId_First(int ConsumptionId,
+	public Consumption findByConsumptionId_First(long ConsumptionId,
 		OrderByComparator orderByComparator)
 		throws NoSuchConsumptionException, SystemException {
 		Consumption consumption = fetchByConsumptionId_First(ConsumptionId,
@@ -293,7 +293,7 @@ public class ConsumptionPersistenceImpl extends BasePersistenceImpl<Consumption>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Consumption fetchByConsumptionId_First(int ConsumptionId,
+	public Consumption fetchByConsumptionId_First(long ConsumptionId,
 		OrderByComparator orderByComparator) throws SystemException {
 		List<Consumption> list = findByConsumptionId(ConsumptionId, 0, 1,
 				orderByComparator);
@@ -315,7 +315,7 @@ public class ConsumptionPersistenceImpl extends BasePersistenceImpl<Consumption>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Consumption findByConsumptionId_Last(int ConsumptionId,
+	public Consumption findByConsumptionId_Last(long ConsumptionId,
 		OrderByComparator orderByComparator)
 		throws NoSuchConsumptionException, SystemException {
 		Consumption consumption = fetchByConsumptionId_Last(ConsumptionId,
@@ -346,7 +346,7 @@ public class ConsumptionPersistenceImpl extends BasePersistenceImpl<Consumption>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Consumption fetchByConsumptionId_Last(int ConsumptionId,
+	public Consumption fetchByConsumptionId_Last(long ConsumptionId,
 		OrderByComparator orderByComparator) throws SystemException {
 		int count = countByConsumptionId(ConsumptionId);
 
@@ -371,7 +371,7 @@ public class ConsumptionPersistenceImpl extends BasePersistenceImpl<Consumption>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public void removeByConsumptionId(int ConsumptionId)
+	public void removeByConsumptionId(long ConsumptionId)
 		throws SystemException {
 		for (Consumption consumption : findByConsumptionId(ConsumptionId,
 				QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
@@ -387,7 +387,7 @@ public class ConsumptionPersistenceImpl extends BasePersistenceImpl<Consumption>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public int countByConsumptionId(int ConsumptionId)
+	public int countByConsumptionId(long ConsumptionId)
 		throws SystemException {
 		FinderPath finderPath = FINDER_PATH_COUNT_BY_CONSUMPTIONID;
 
@@ -525,7 +525,7 @@ public class ConsumptionPersistenceImpl extends BasePersistenceImpl<Consumption>
 	 * @return the new consumption
 	 */
 	@Override
-	public Consumption create(int ConsumptionId) {
+	public Consumption create(long ConsumptionId) {
 		Consumption consumption = new ConsumptionImpl();
 
 		consumption.setNew(true);
@@ -543,7 +543,7 @@ public class ConsumptionPersistenceImpl extends BasePersistenceImpl<Consumption>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Consumption remove(int ConsumptionId)
+	public Consumption remove(long ConsumptionId)
 		throws NoSuchConsumptionException, SystemException {
 		return remove((Serializable)ConsumptionId);
 	}
@@ -741,7 +741,7 @@ public class ConsumptionPersistenceImpl extends BasePersistenceImpl<Consumption>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Consumption findByPrimaryKey(int ConsumptionId)
+	public Consumption findByPrimaryKey(long ConsumptionId)
 		throws NoSuchConsumptionException, SystemException {
 		return findByPrimaryKey((Serializable)ConsumptionId);
 	}
@@ -802,7 +802,7 @@ public class ConsumptionPersistenceImpl extends BasePersistenceImpl<Consumption>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Consumption fetchByPrimaryKey(int ConsumptionId)
+	public Consumption fetchByPrimaryKey(long ConsumptionId)
 		throws SystemException {
 		return fetchByPrimaryKey((Serializable)ConsumptionId);
 	}

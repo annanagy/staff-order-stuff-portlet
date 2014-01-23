@@ -53,7 +53,6 @@ public class FoodWrapper implements Food, ModelWrapper<Food> {
 		attributes.put("GroupId", getGroupId());
 		attributes.put("Name", getName());
 		attributes.put("Price", getPrice());
-		attributes.put("Quantity", getQuantity());
 		attributes.put("Unit", getUnit());
 
 		return attributes;
@@ -61,7 +60,7 @@ public class FoodWrapper implements Food, ModelWrapper<Food> {
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Integer FoodId = (Integer)attributes.get("FoodId");
+		Long FoodId = (Long)attributes.get("FoodId");
 
 		if (FoodId != null) {
 			setFoodId(FoodId);
@@ -91,12 +90,6 @@ public class FoodWrapper implements Food, ModelWrapper<Food> {
 			setPrice(Price);
 		}
 
-		Double Quantity = (Double)attributes.get("Quantity");
-
-		if (Quantity != null) {
-			setQuantity(Quantity);
-		}
-
 		String Unit = (String)attributes.get("Unit");
 
 		if (Unit != null) {
@@ -110,7 +103,7 @@ public class FoodWrapper implements Food, ModelWrapper<Food> {
 	* @return the primary key of this food
 	*/
 	@Override
-	public int getPrimaryKey() {
+	public long getPrimaryKey() {
 		return _food.getPrimaryKey();
 	}
 
@@ -120,7 +113,7 @@ public class FoodWrapper implements Food, ModelWrapper<Food> {
 	* @param primaryKey the primary key of this food
 	*/
 	@Override
-	public void setPrimaryKey(int primaryKey) {
+	public void setPrimaryKey(long primaryKey) {
 		_food.setPrimaryKey(primaryKey);
 	}
 
@@ -130,7 +123,7 @@ public class FoodWrapper implements Food, ModelWrapper<Food> {
 	* @return the food ID of this food
 	*/
 	@Override
-	public int getFoodId() {
+	public long getFoodId() {
 		return _food.getFoodId();
 	}
 
@@ -140,7 +133,7 @@ public class FoodWrapper implements Food, ModelWrapper<Food> {
 	* @param FoodId the food ID of this food
 	*/
 	@Override
-	public void setFoodId(int FoodId) {
+	public void setFoodId(long FoodId) {
 		_food.setFoodId(FoodId);
 	}
 
@@ -222,26 +215,6 @@ public class FoodWrapper implements Food, ModelWrapper<Food> {
 	@Override
 	public void setPrice(double Price) {
 		_food.setPrice(Price);
-	}
-
-	/**
-	* Returns the quantity of this food.
-	*
-	* @return the quantity of this food
-	*/
-	@Override
-	public double getQuantity() {
-		return _food.getQuantity();
-	}
-
-	/**
-	* Sets the quantity of this food.
-	*
-	* @param Quantity the quantity of this food
-	*/
-	@Override
-	public void setQuantity(double Quantity) {
-		_food.setQuantity(Quantity);
 	}
 
 	/**
@@ -328,7 +301,7 @@ public class FoodWrapper implements Food, ModelWrapper<Food> {
 	}
 
 	@Override
-	public int compareTo(Food food) {
+	public int compareTo(com.liferay.support.stafforderstuff.model.Food food) {
 		return _food.compareTo(food);
 	}
 
@@ -338,17 +311,17 @@ public class FoodWrapper implements Food, ModelWrapper<Food> {
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<Food> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<com.liferay.support.stafforderstuff.model.Food> toCacheModel() {
 		return _food.toCacheModel();
 	}
 
 	@Override
-	public Food toEscapedModel() {
+	public com.liferay.support.stafforderstuff.model.Food toEscapedModel() {
 		return new FoodWrapper(_food.toEscapedModel());
 	}
 
 	@Override
-	public Food toUnescapedModel() {
+	public com.liferay.support.stafforderstuff.model.Food toUnescapedModel() {
 		return new FoodWrapper(_food.toUnescapedModel());
 	}
 

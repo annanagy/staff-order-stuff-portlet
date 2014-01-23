@@ -92,7 +92,7 @@ public class ConsumptionCacheModel implements CacheModel<Consumption>,
 
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
-		ConsumptionId = objectInput.readInt();
+		ConsumptionId = objectInput.readLong();
 		UserId = objectInput.readInt();
 		FoodId = objectInput.readInt();
 		Date = objectInput.readLong();
@@ -104,7 +104,7 @@ public class ConsumptionCacheModel implements CacheModel<Consumption>,
 	@Override
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
-		objectOutput.writeInt(ConsumptionId);
+		objectOutput.writeLong(ConsumptionId);
 		objectOutput.writeInt(UserId);
 		objectOutput.writeInt(FoodId);
 		objectOutput.writeLong(Date);
@@ -120,7 +120,7 @@ public class ConsumptionCacheModel implements CacheModel<Consumption>,
 		objectOutput.writeInt(Status);
 	}
 
-	public int ConsumptionId;
+	public long ConsumptionId;
 	public int UserId;
 	public int FoodId;
 	public long Date;

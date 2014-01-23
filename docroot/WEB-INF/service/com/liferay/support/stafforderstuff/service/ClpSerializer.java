@@ -25,8 +25,8 @@ import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.BaseModel;
 
-import com.liferay.support.stafforderstuff.model.ConsumptionClp;
 import com.liferay.support.stafforderstuff.model.FoodClp;
+import com.liferay.support.stafforderstuff.model.StockClp;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -103,12 +103,12 @@ public class ClpSerializer {
 
 		String oldModelClassName = oldModelClass.getName();
 
-		if (oldModelClassName.equals(ConsumptionClp.class.getName())) {
-			return translateInputConsumption(oldModel);
-		}
-
 		if (oldModelClassName.equals(FoodClp.class.getName())) {
 			return translateInputFood(oldModel);
+		}
+
+		if (oldModelClassName.equals(StockClp.class.getName())) {
+			return translateInputStock(oldModel);
 		}
 
 		return oldModel;
@@ -126,20 +126,20 @@ public class ClpSerializer {
 		return newList;
 	}
 
-	public static Object translateInputConsumption(BaseModel<?> oldModel) {
-		ConsumptionClp oldClpModel = (ConsumptionClp)oldModel;
+	public static Object translateInputFood(BaseModel<?> oldModel) {
+		FoodClp oldClpModel = (FoodClp)oldModel;
 
-		BaseModel<?> newModel = oldClpModel.getConsumptionRemoteModel();
+		BaseModel<?> newModel = oldClpModel.getFoodRemoteModel();
 
 		newModel.setModelAttributes(oldClpModel.getModelAttributes());
 
 		return newModel;
 	}
 
-	public static Object translateInputFood(BaseModel<?> oldModel) {
-		FoodClp oldClpModel = (FoodClp)oldModel;
+	public static Object translateInputStock(BaseModel<?> oldModel) {
+		StockClp oldClpModel = (StockClp)oldModel;
 
-		BaseModel<?> newModel = oldClpModel.getFoodRemoteModel();
+		BaseModel<?> newModel = oldClpModel.getStockRemoteModel();
 
 		newModel.setModelAttributes(oldClpModel.getModelAttributes());
 
@@ -164,13 +164,13 @@ public class ClpSerializer {
 		String oldModelClassName = oldModelClass.getName();
 
 		if (oldModelClassName.equals(
-					"com.liferay.support.stafforderstuff.model.impl.ConsumptionImpl")) {
-			return translateOutputConsumption(oldModel);
+					"com.liferay.support.stafforderstuff.model.impl.FoodImpl")) {
+			return translateOutputFood(oldModel);
 		}
 
 		if (oldModelClassName.equals(
-					"com.liferay.support.stafforderstuff.model.impl.FoodImpl")) {
-			return translateOutputFood(oldModel);
+					"com.liferay.support.stafforderstuff.model.impl.StockImpl")) {
+			return translateOutputStock(oldModel);
 		}
 
 		return oldModel;
@@ -254,26 +254,16 @@ public class ClpSerializer {
 		}
 
 		if (className.equals(
-					"com.liferay.support.stafforderstuff.NoSuchConsumptionException")) {
-			return new com.liferay.support.stafforderstuff.NoSuchConsumptionException();
-		}
-
-		if (className.equals(
 					"com.liferay.support.stafforderstuff.NoSuchFoodException")) {
 			return new com.liferay.support.stafforderstuff.NoSuchFoodException();
 		}
 
+		if (className.equals(
+					"com.liferay.support.stafforderstuff.NoSuchStockException")) {
+			return new com.liferay.support.stafforderstuff.NoSuchStockException();
+		}
+
 		return throwable;
-	}
-
-	public static Object translateOutputConsumption(BaseModel<?> oldModel) {
-		ConsumptionClp newModel = new ConsumptionClp();
-
-		newModel.setModelAttributes(oldModel.getModelAttributes());
-
-		newModel.setConsumptionRemoteModel(oldModel);
-
-		return newModel;
 	}
 
 	public static Object translateOutputFood(BaseModel<?> oldModel) {
@@ -282,6 +272,16 @@ public class ClpSerializer {
 		newModel.setModelAttributes(oldModel.getModelAttributes());
 
 		newModel.setFoodRemoteModel(oldModel);
+
+		return newModel;
+	}
+
+	public static Object translateOutputStock(BaseModel<?> oldModel) {
+		StockClp newModel = new StockClp();
+
+		newModel.setModelAttributes(oldModel.getModelAttributes());
+
+		newModel.setStockRemoteModel(oldModel);
 
 		return newModel;
 	}

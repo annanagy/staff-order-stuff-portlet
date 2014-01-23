@@ -33,8 +33,8 @@ import com.liferay.portal.service.persistence.UserPersistence;
 
 import com.liferay.support.stafforderstuff.model.Food;
 import com.liferay.support.stafforderstuff.service.FoodLocalService;
-import com.liferay.support.stafforderstuff.service.persistence.ConsumptionPersistence;
 import com.liferay.support.stafforderstuff.service.persistence.FoodPersistence;
+import com.liferay.support.stafforderstuff.service.persistence.StockPersistence;
 
 import java.io.Serializable;
 
@@ -84,7 +84,7 @@ public abstract class FoodLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @return the new food
 	 */
 	@Override
-	public Food createFood(int FoodId) {
+	public Food createFood(long FoodId) {
 		return foodPersistence.create(FoodId);
 	}
 
@@ -98,7 +98,7 @@ public abstract class FoodLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 */
 	@Indexable(type = IndexableType.DELETE)
 	@Override
-	public Food deleteFood(int FoodId) throws PortalException, SystemException {
+	public Food deleteFood(long FoodId) throws PortalException, SystemException {
 		return foodPersistence.remove(FoodId);
 	}
 
@@ -207,7 +207,7 @@ public abstract class FoodLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	@Override
-	public Food fetchFood(int FoodId) throws SystemException {
+	public Food fetchFood(long FoodId) throws SystemException {
 		return foodPersistence.fetchByPrimaryKey(FoodId);
 	}
 
@@ -220,7 +220,7 @@ public abstract class FoodLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Food getFood(int FoodId) throws PortalException, SystemException {
+	public Food getFood(long FoodId) throws PortalException, SystemException {
 		return foodPersistence.findByPrimaryKey(FoodId);
 	}
 
@@ -272,44 +272,6 @@ public abstract class FoodLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	/**
-	 * Returns the consumption local service.
-	 *
-	 * @return the consumption local service
-	 */
-	public com.liferay.support.stafforderstuff.service.ConsumptionLocalService getConsumptionLocalService() {
-		return consumptionLocalService;
-	}
-
-	/**
-	 * Sets the consumption local service.
-	 *
-	 * @param consumptionLocalService the consumption local service
-	 */
-	public void setConsumptionLocalService(
-		com.liferay.support.stafforderstuff.service.ConsumptionLocalService consumptionLocalService) {
-		this.consumptionLocalService = consumptionLocalService;
-	}
-
-	/**
-	 * Returns the consumption persistence.
-	 *
-	 * @return the consumption persistence
-	 */
-	public ConsumptionPersistence getConsumptionPersistence() {
-		return consumptionPersistence;
-	}
-
-	/**
-	 * Sets the consumption persistence.
-	 *
-	 * @param consumptionPersistence the consumption persistence
-	 */
-	public void setConsumptionPersistence(
-		ConsumptionPersistence consumptionPersistence) {
-		this.consumptionPersistence = consumptionPersistence;
-	}
-
-	/**
 	 * Returns the food local service.
 	 *
 	 * @return the food local service
@@ -344,6 +306,43 @@ public abstract class FoodLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 */
 	public void setFoodPersistence(FoodPersistence foodPersistence) {
 		this.foodPersistence = foodPersistence;
+	}
+
+	/**
+	 * Returns the stock local service.
+	 *
+	 * @return the stock local service
+	 */
+	public com.liferay.support.stafforderstuff.service.StockLocalService getStockLocalService() {
+		return stockLocalService;
+	}
+
+	/**
+	 * Sets the stock local service.
+	 *
+	 * @param stockLocalService the stock local service
+	 */
+	public void setStockLocalService(
+		com.liferay.support.stafforderstuff.service.StockLocalService stockLocalService) {
+		this.stockLocalService = stockLocalService;
+	}
+
+	/**
+	 * Returns the stock persistence.
+	 *
+	 * @return the stock persistence
+	 */
+	public StockPersistence getStockPersistence() {
+		return stockPersistence;
+	}
+
+	/**
+	 * Sets the stock persistence.
+	 *
+	 * @param stockPersistence the stock persistence
+	 */
+	public void setStockPersistence(StockPersistence stockPersistence) {
+		this.stockPersistence = stockPersistence;
 	}
 
 	/**
@@ -522,14 +521,14 @@ public abstract class FoodLocalServiceBaseImpl extends BaseLocalServiceImpl
 		}
 	}
 
-	@BeanReference(type = com.liferay.support.stafforderstuff.service.ConsumptionLocalService.class)
-	protected com.liferay.support.stafforderstuff.service.ConsumptionLocalService consumptionLocalService;
-	@BeanReference(type = ConsumptionPersistence.class)
-	protected ConsumptionPersistence consumptionPersistence;
 	@BeanReference(type = com.liferay.support.stafforderstuff.service.FoodLocalService.class)
 	protected com.liferay.support.stafforderstuff.service.FoodLocalService foodLocalService;
 	@BeanReference(type = FoodPersistence.class)
 	protected FoodPersistence foodPersistence;
+	@BeanReference(type = com.liferay.support.stafforderstuff.service.StockLocalService.class)
+	protected com.liferay.support.stafforderstuff.service.StockLocalService stockLocalService;
+	@BeanReference(type = StockPersistence.class)
+	protected StockPersistence stockPersistence;
 	@BeanReference(type = com.liferay.counter.service.CounterLocalService.class)
 	protected com.liferay.counter.service.CounterLocalService counterLocalService;
 	@BeanReference(type = com.liferay.portal.service.ResourceLocalService.class)

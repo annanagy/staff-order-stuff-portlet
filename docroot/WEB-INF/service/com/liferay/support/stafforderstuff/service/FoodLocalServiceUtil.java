@@ -59,7 +59,7 @@ public class FoodLocalServiceUtil {
 	* @return the new food
 	*/
 	public static com.liferay.support.stafforderstuff.model.Food createFood(
-		int FoodId) {
+		long FoodId) {
 		return getService().createFood(FoodId);
 	}
 
@@ -72,7 +72,7 @@ public class FoodLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.liferay.support.stafforderstuff.model.Food deleteFood(
-		int FoodId)
+		long FoodId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return getService().deleteFood(FoodId);
@@ -182,7 +182,7 @@ public class FoodLocalServiceUtil {
 	}
 
 	public static com.liferay.support.stafforderstuff.model.Food fetchFood(
-		int FoodId) throws com.liferay.portal.kernel.exception.SystemException {
+		long FoodId) throws com.liferay.portal.kernel.exception.SystemException {
 		return getService().fetchFood(FoodId);
 	}
 
@@ -195,7 +195,7 @@ public class FoodLocalServiceUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.liferay.support.stafforderstuff.model.Food getFood(
-		int FoodId)
+		long FoodId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return getService().getFood(FoodId);
@@ -272,6 +272,20 @@ public class FoodLocalServiceUtil {
 		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
 		throws java.lang.Throwable {
 		return getService().invokeMethod(name, parameterTypes, arguments);
+	}
+
+	public static void addFood(java.lang.String name, double price,
+		java.lang.String unit) {
+		getService().addFood(name, price, unit);
+	}
+
+	public static void addDummyFood() {
+		getService().addDummyFood();
+	}
+
+	public static com.liferay.support.stafforderstuff.model.Food createDummyFood()
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().createDummyFood();
 	}
 
 	public static void clearService() {

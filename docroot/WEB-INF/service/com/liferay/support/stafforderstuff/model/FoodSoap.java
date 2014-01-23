@@ -34,7 +34,6 @@ public class FoodSoap implements Serializable {
 		soapModel.setGroupId(model.getGroupId());
 		soapModel.setName(model.getName());
 		soapModel.setPrice(model.getPrice());
-		soapModel.setQuantity(model.getQuantity());
 		soapModel.setUnit(model.getUnit());
 
 		return soapModel;
@@ -80,19 +79,19 @@ public class FoodSoap implements Serializable {
 	public FoodSoap() {
 	}
 
-	public int getPrimaryKey() {
+	public long getPrimaryKey() {
 		return _FoodId;
 	}
 
-	public void setPrimaryKey(int pk) {
+	public void setPrimaryKey(long pk) {
 		setFoodId(pk);
 	}
 
-	public int getFoodId() {
+	public long getFoodId() {
 		return _FoodId;
 	}
 
-	public void setFoodId(int FoodId) {
+	public void setFoodId(long FoodId) {
 		_FoodId = FoodId;
 	}
 
@@ -128,14 +127,6 @@ public class FoodSoap implements Serializable {
 		_Price = Price;
 	}
 
-	public double getQuantity() {
-		return _Quantity;
-	}
-
-	public void setQuantity(double Quantity) {
-		_Quantity = Quantity;
-	}
-
 	public String getUnit() {
 		return _Unit;
 	}
@@ -144,11 +135,10 @@ public class FoodSoap implements Serializable {
 		_Unit = Unit;
 	}
 
-	private int _FoodId;
+	private long _FoodId;
 	private long _CompanyId;
 	private long _GroupId;
 	private String _Name;
 	private double _Price;
-	private double _Quantity;
 	private String _Unit;
 }

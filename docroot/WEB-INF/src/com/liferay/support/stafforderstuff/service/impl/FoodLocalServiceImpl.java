@@ -14,6 +14,13 @@
 
 package com.liferay.support.stafforderstuff.service.impl;
 
+import com.liferay.counter.service.CounterLocalServiceUtil;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.support.stafforderstuff.StaffOrderStuff;
+import com.liferay.support.stafforderstuff.model.Food;
+import com.liferay.support.stafforderstuff.model.Stock;
 import com.liferay.support.stafforderstuff.service.base.FoodLocalServiceBaseImpl;
 
 /**
@@ -36,4 +43,73 @@ public class FoodLocalServiceImpl extends FoodLocalServiceBaseImpl {
 	 *
 	 * Never reference this interface directly. Always use {@link com.liferay.support.stafforderstuff.service.FoodLocalServiceUtil} to access the food local service.
 	 */
+
+	public void addFood(String name, double price, String unit) {
+
+		_log.error("Inside addFood()");
+
+		try {
+			_log.error("Inside addFood(name, price, unit)");
+			long foodId = CounterLocalServiceUtil.increment(Food.class.getName());
+			Food food = foodPersistence.create(foodId);
+
+			long companyId = 1;
+			food.setCompanyId(companyId);
+
+			long groupId = 1;
+			food.setGroupId(groupId);
+
+			food.setName(name);
+			food.setPrice(price);
+			food.setUnit(unit);
+
+			addFood(food);
+		}
+
+		catch (SystemException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+
+	public void addDummyFood() {
+
+		_log.error("Inside addDummyFood()");
+		try {
+			Food food = createDummyFood();
+			addFood(food);
+		} catch (SystemException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public Food createDummyFood() throws SystemException {
+
+		_log.error("Inside createDummyFood()");
+		long foodId = CounterLocalServiceUtil.increment(Food.class.getName());
+		Food food = foodPersistence.create(foodId);
+
+		long companyId = 1;
+		food.setCompanyId(companyId);
+
+		long groupId = 1;
+		food.setGroupId(groupId);
+
+		String name = "DummyFood" + String.valueOf(foodId);
+		food.setName(name);
+		//double price = (short) foodId; // ;-)
+
+		double price = 100.56d;
+		food.setPrice(price);
+
+		String unit = "pcs";
+		food.setUnit(unit);
+
+		return food;
+	}
+	
+
+	private static Log _log = LogFactoryUtil.getLog(FoodLocalServiceImpl.class);
 }

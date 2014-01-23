@@ -151,7 +151,7 @@ public interface FoodPersistence extends BasePersistence<Food> {
 	* @throws SystemException if a system exception occurred
 	*/
 	public com.liferay.support.stafforderstuff.model.Food[] findByGroupId_PrevAndNext(
-		int FoodId, long GroupId,
+		long FoodId, long GroupId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			com.liferay.support.stafforderstuff.NoSuchFoodException;
@@ -196,7 +196,7 @@ public interface FoodPersistence extends BasePersistence<Food> {
 	* @param FoodId the primary key for the new food
 	* @return the new food
 	*/
-	public com.liferay.support.stafforderstuff.model.Food create(int FoodId);
+	public com.liferay.support.stafforderstuff.model.Food create(long FoodId);
 
 	/**
 	* Removes the food with the primary key from the database. Also notifies the appropriate model listeners.
@@ -206,7 +206,7 @@ public interface FoodPersistence extends BasePersistence<Food> {
 	* @throws com.liferay.support.stafforderstuff.NoSuchFoodException if a food with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.liferay.support.stafforderstuff.model.Food remove(int FoodId)
+	public com.liferay.support.stafforderstuff.model.Food remove(long FoodId)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			com.liferay.support.stafforderstuff.NoSuchFoodException;
 
@@ -223,7 +223,7 @@ public interface FoodPersistence extends BasePersistence<Food> {
 	* @throws SystemException if a system exception occurred
 	*/
 	public com.liferay.support.stafforderstuff.model.Food findByPrimaryKey(
-		int FoodId)
+		long FoodId)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			com.liferay.support.stafforderstuff.NoSuchFoodException;
 
@@ -235,7 +235,7 @@ public interface FoodPersistence extends BasePersistence<Food> {
 	* @throws SystemException if a system exception occurred
 	*/
 	public com.liferay.support.stafforderstuff.model.Food fetchByPrimaryKey(
-		int FoodId) throws com.liferay.portal.kernel.exception.SystemException;
+		long FoodId) throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
 	* Returns all the foods.

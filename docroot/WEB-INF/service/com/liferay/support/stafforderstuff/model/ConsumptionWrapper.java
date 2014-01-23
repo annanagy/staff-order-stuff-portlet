@@ -63,7 +63,7 @@ public class ConsumptionWrapper implements Consumption,
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Integer ConsumptionId = (Integer)attributes.get("ConsumptionId");
+		Long ConsumptionId = (Long)attributes.get("ConsumptionId");
 
 		if (ConsumptionId != null) {
 			setConsumptionId(ConsumptionId);
@@ -112,7 +112,7 @@ public class ConsumptionWrapper implements Consumption,
 	* @return the primary key of this consumption
 	*/
 	@Override
-	public int getPrimaryKey() {
+	public long getPrimaryKey() {
 		return _consumption.getPrimaryKey();
 	}
 
@@ -122,7 +122,7 @@ public class ConsumptionWrapper implements Consumption,
 	* @param primaryKey the primary key of this consumption
 	*/
 	@Override
-	public void setPrimaryKey(int primaryKey) {
+	public void setPrimaryKey(long primaryKey) {
 		_consumption.setPrimaryKey(primaryKey);
 	}
 
@@ -132,7 +132,7 @@ public class ConsumptionWrapper implements Consumption,
 	* @return the consumption ID of this consumption
 	*/
 	@Override
-	public int getConsumptionId() {
+	public long getConsumptionId() {
 		return _consumption.getConsumptionId();
 	}
 
@@ -142,7 +142,7 @@ public class ConsumptionWrapper implements Consumption,
 	* @param ConsumptionId the consumption ID of this consumption
 	*/
 	@Override
-	public void setConsumptionId(int ConsumptionId) {
+	public void setConsumptionId(long ConsumptionId) {
 		_consumption.setConsumptionId(ConsumptionId);
 	}
 
@@ -330,7 +330,8 @@ public class ConsumptionWrapper implements Consumption,
 	}
 
 	@Override
-	public int compareTo(Consumption consumption) {
+	public int compareTo(
+		com.liferay.support.stafforderstuff.model.Consumption consumption) {
 		return _consumption.compareTo(consumption);
 	}
 
@@ -340,17 +341,17 @@ public class ConsumptionWrapper implements Consumption,
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<Consumption> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<com.liferay.support.stafforderstuff.model.Consumption> toCacheModel() {
 		return _consumption.toCacheModel();
 	}
 
 	@Override
-	public Consumption toEscapedModel() {
+	public com.liferay.support.stafforderstuff.model.Consumption toEscapedModel() {
 		return new ConsumptionWrapper(_consumption.toEscapedModel());
 	}
 
 	@Override
-	public Consumption toUnescapedModel() {
+	public com.liferay.support.stafforderstuff.model.Consumption toUnescapedModel() {
 		return new ConsumptionWrapper(_consumption.toUnescapedModel());
 	}
 

@@ -18,8 +18,8 @@ import com.liferay.portal.kernel.messaging.BaseMessageListener;
 import com.liferay.portal.kernel.messaging.Message;
 
 import com.liferay.support.stafforderstuff.service.ClpSerializer;
-import com.liferay.support.stafforderstuff.service.ConsumptionLocalServiceUtil;
 import com.liferay.support.stafforderstuff.service.FoodLocalServiceUtil;
+import com.liferay.support.stafforderstuff.service.StockLocalServiceUtil;
 
 /**
  * @author Anna & Ádám
@@ -36,9 +36,9 @@ public class ClpMessageListener extends BaseMessageListener {
 
 		if (command.equals("undeploy") &&
 				servletContextName.equals(getServletContextName())) {
-			ConsumptionLocalServiceUtil.clearService();
-
 			FoodLocalServiceUtil.clearService();
+
+			StockLocalServiceUtil.clearService();
 		}
 	}
 }

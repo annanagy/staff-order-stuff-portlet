@@ -21,6 +21,10 @@ import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.model.impl.BaseModelImpl;
+import com.liferay.portal.service.ServiceContext;
+
+import com.liferay.portlet.expando.model.ExpandoBridge;
+import com.liferay.portlet.expando.util.ExpandoBridgeFactoryUtil;
 
 import com.liferay.support.stafforderstuff.model.Food;
 import com.liferay.support.stafforderstuff.model.FoodModel;
@@ -53,15 +57,14 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 	 */
 	public static final String TABLE_NAME = "StaffOrderStuff_Food";
 	public static final Object[][] TABLE_COLUMNS = {
-			{ "FoodId", Types.INTEGER },
+			{ "FoodId", Types.BIGINT },
 			{ "CompanyId", Types.BIGINT },
 			{ "GroupId", Types.BIGINT },
 			{ "Name", Types.VARCHAR },
 			{ "Price", Types.DOUBLE },
-			{ "Quantity", Types.DOUBLE },
 			{ "Unit", Types.VARCHAR }
 		};
-	public static final String TABLE_SQL_CREATE = "create table StaffOrderStuff_Food (FoodId INTEGER not null primary key,CompanyId LONG,GroupId LONG,Name VARCHAR(75) null,Price DOUBLE,Quantity DOUBLE,Unit VARCHAR(75) null)";
+	public static final String TABLE_SQL_CREATE = "create table StaffOrderStuff_Food (FoodId LONG not null primary key,CompanyId LONG,GroupId LONG,Name VARCHAR(75) null,Price DOUBLE,Unit VARCHAR(75) null)";
 	public static final String TABLE_SQL_DROP = "drop table StaffOrderStuff_Food";
 	public static final String ORDER_BY_JPQL = " ORDER BY food.FoodId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY StaffOrderStuff_Food.FoodId ASC";
@@ -86,12 +89,12 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 	}
 
 	@Override
-	public int getPrimaryKey() {
+	public long getPrimaryKey() {
 		return _FoodId;
 	}
 
 	@Override
-	public void setPrimaryKey(int primaryKey) {
+	public void setPrimaryKey(long primaryKey) {
 		setFoodId(primaryKey);
 	}
 
@@ -102,7 +105,7 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 
 	@Override
 	public void setPrimaryKeyObj(Serializable primaryKeyObj) {
-		setPrimaryKey(((Integer)primaryKeyObj).intValue());
+		setPrimaryKey(((Long)primaryKeyObj).longValue());
 	}
 
 	@Override
@@ -124,7 +127,6 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 		attributes.put("GroupId", getGroupId());
 		attributes.put("Name", getName());
 		attributes.put("Price", getPrice());
-		attributes.put("Quantity", getQuantity());
 		attributes.put("Unit", getUnit());
 
 		return attributes;
@@ -132,7 +134,7 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Integer FoodId = (Integer)attributes.get("FoodId");
+		Long FoodId = (Long)attributes.get("FoodId");
 
 		if (FoodId != null) {
 			setFoodId(FoodId);
@@ -162,12 +164,6 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 			setPrice(Price);
 		}
 
-		Double Quantity = (Double)attributes.get("Quantity");
-
-		if (Quantity != null) {
-			setQuantity(Quantity);
-		}
-
 		String Unit = (String)attributes.get("Unit");
 
 		if (Unit != null) {
@@ -176,12 +172,12 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 	}
 
 	@Override
-	public int getFoodId() {
+	public long getFoodId() {
 		return _FoodId;
 	}
 
 	@Override
-	public void setFoodId(int FoodId) {
+	public void setFoodId(long FoodId) {
 		_FoodId = FoodId;
 	}
 
@@ -243,16 +239,6 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 	}
 
 	@Override
-	public double getQuantity() {
-		return _Quantity;
-	}
-
-	@Override
-	public void setQuantity(double Quantity) {
-		_Quantity = Quantity;
-	}
-
-	@Override
 	public String getUnit() {
 		if (_Unit == null) {
 			return StringPool.BLANK;
@@ -269,6 +255,19 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 
 	public long getColumnBitmask() {
 		return _columnBitmask;
+	}
+
+	@Override
+	public ExpandoBridge getExpandoBridge() {
+		return ExpandoBridgeFactoryUtil.getExpandoBridge(0,
+			Food.class.getName(), getPrimaryKey());
+	}
+
+	@Override
+	public void setExpandoBridgeAttributes(ServiceContext serviceContext) {
+		ExpandoBridge expandoBridge = getExpandoBridge();
+
+		expandoBridge.setAttributes(serviceContext);
 	}
 
 	@Override
@@ -290,7 +289,6 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 		foodImpl.setGroupId(getGroupId());
 		foodImpl.setName(getName());
 		foodImpl.setPrice(getPrice());
-		foodImpl.setQuantity(getQuantity());
 		foodImpl.setUnit(getUnit());
 
 		foodImpl.resetOriginalValues();
@@ -300,7 +298,7 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 
 	@Override
 	public int compareTo(Food food) {
-		int primaryKey = food.getPrimaryKey();
+		long primaryKey = food.getPrimaryKey();
 
 		if (getPrimaryKey() < primaryKey) {
 			return -1;
@@ -325,7 +323,7 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 
 		Food food = (Food)obj;
 
-		int primaryKey = food.getPrimaryKey();
+		long primaryKey = food.getPrimaryKey();
 
 		if (getPrimaryKey() == primaryKey) {
 			return true;
@@ -337,7 +335,7 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 
 	@Override
 	public int hashCode() {
-		return getPrimaryKey();
+		return (int)getPrimaryKey();
 	}
 
 	@Override
@@ -371,8 +369,6 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 
 		foodCacheModel.Price = getPrice();
 
-		foodCacheModel.Quantity = getQuantity();
-
 		foodCacheModel.Unit = getUnit();
 
 		String Unit = foodCacheModel.Unit;
@@ -386,7 +382,7 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(15);
+		StringBundler sb = new StringBundler(13);
 
 		sb.append("{FoodId=");
 		sb.append(getFoodId());
@@ -398,8 +394,6 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 		sb.append(getName());
 		sb.append(", Price=");
 		sb.append(getPrice());
-		sb.append(", Quantity=");
-		sb.append(getQuantity());
 		sb.append(", Unit=");
 		sb.append(getUnit());
 		sb.append("}");
@@ -409,7 +403,7 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(25);
+		StringBundler sb = new StringBundler(22);
 
 		sb.append("<model><model-name>");
 		sb.append("com.liferay.support.stafforderstuff.model.Food");
@@ -436,10 +430,6 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 		sb.append(getPrice());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>Quantity</column-name><column-value><![CDATA[");
-		sb.append(getQuantity());
-		sb.append("]]></column-value></column>");
-		sb.append(
 			"<column><column-name>Unit</column-name><column-value><![CDATA[");
 		sb.append(getUnit());
 		sb.append("]]></column-value></column>");
@@ -451,14 +441,13 @@ public class FoodModelImpl extends BaseModelImpl<Food> implements FoodModel {
 
 	private static ClassLoader _classLoader = Food.class.getClassLoader();
 	private static Class<?>[] _escapedModelInterfaces = new Class[] { Food.class };
-	private int _FoodId;
+	private long _FoodId;
 	private long _CompanyId;
 	private long _GroupId;
 	private long _originalGroupId;
 	private boolean _setOriginalGroupId;
 	private String _Name;
 	private double _Price;
-	private double _Quantity;
 	private String _Unit;
 	private long _columnBitmask;
 	private Food _escapedModel;

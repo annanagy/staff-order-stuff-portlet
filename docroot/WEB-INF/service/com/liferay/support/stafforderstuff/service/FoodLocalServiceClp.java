@@ -32,11 +32,11 @@ public class FoodLocalServiceClp implements FoodLocalService {
 
 		_methodName1 = "createFood";
 
-		_methodParameterTypes1 = new String[] { "int" };
+		_methodParameterTypes1 = new String[] { "long" };
 
 		_methodName2 = "deleteFood";
 
-		_methodParameterTypes2 = new String[] { "int" };
+		_methodParameterTypes2 = new String[] { "long" };
 
 		_methodName3 = "deleteFood";
 
@@ -82,11 +82,11 @@ public class FoodLocalServiceClp implements FoodLocalService {
 
 		_methodName10 = "fetchFood";
 
-		_methodParameterTypes10 = new String[] { "int" };
+		_methodParameterTypes10 = new String[] { "long" };
 
 		_methodName11 = "getFood";
 
-		_methodParameterTypes11 = new String[] { "int" };
+		_methodParameterTypes11 = new String[] { "long" };
 
 		_methodName12 = "getPersistedModel";
 
@@ -113,6 +113,20 @@ public class FoodLocalServiceClp implements FoodLocalService {
 		_methodName17 = "setBeanIdentifier";
 
 		_methodParameterTypes17 = new String[] { "java.lang.String" };
+
+		_methodName19 = "addFood";
+
+		_methodParameterTypes19 = new String[] {
+				"java.lang.String", "double", "java.lang.String"
+			};
+
+		_methodName20 = "addDummyFood";
+
+		_methodParameterTypes20 = new String[] {  };
+
+		_methodName21 = "createDummyFood";
+
+		_methodParameterTypes21 = new String[] {  };
 	}
 
 	@Override
@@ -146,7 +160,8 @@ public class FoodLocalServiceClp implements FoodLocalService {
 	}
 
 	@Override
-	public com.liferay.support.stafforderstuff.model.Food createFood(int FoodId) {
+	public com.liferay.support.stafforderstuff.model.Food createFood(
+		long FoodId) {
 		Object returnObj = null;
 
 		try {
@@ -169,7 +184,8 @@ public class FoodLocalServiceClp implements FoodLocalService {
 	}
 
 	@Override
-	public com.liferay.support.stafforderstuff.model.Food deleteFood(int FoodId)
+	public com.liferay.support.stafforderstuff.model.Food deleteFood(
+		long FoodId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
@@ -429,7 +445,7 @@ public class FoodLocalServiceClp implements FoodLocalService {
 	}
 
 	@Override
-	public com.liferay.support.stafforderstuff.model.Food fetchFood(int FoodId)
+	public com.liferay.support.stafforderstuff.model.Food fetchFood(long FoodId)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
@@ -457,7 +473,7 @@ public class FoodLocalServiceClp implements FoodLocalService {
 	}
 
 	@Override
-	public com.liferay.support.stafforderstuff.model.Food getFood(int FoodId)
+	public com.liferay.support.stafforderstuff.model.Food getFood(long FoodId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
@@ -661,6 +677,80 @@ public class FoodLocalServiceClp implements FoodLocalService {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
+	public void addFood(java.lang.String name, double price,
+		java.lang.String unit) {
+		try {
+			_invokableLocalService.invokeMethod(_methodName19,
+				_methodParameterTypes19,
+				new Object[] {
+					ClpSerializer.translateInput(name),
+					
+				price,
+					
+				ClpSerializer.translateInput(unit)
+				});
+		}
+		catch (Throwable t) {
+			t = ClpSerializer.translateThrowable(t);
+
+			if (t instanceof RuntimeException) {
+				throw (RuntimeException)t;
+			}
+			else {
+				throw new RuntimeException(t.getClass().getName() +
+					" is not a valid exception");
+			}
+		}
+	}
+
+	@Override
+	public void addDummyFood() {
+		try {
+			_invokableLocalService.invokeMethod(_methodName20,
+				_methodParameterTypes20, new Object[] {  });
+		}
+		catch (Throwable t) {
+			t = ClpSerializer.translateThrowable(t);
+
+			if (t instanceof RuntimeException) {
+				throw (RuntimeException)t;
+			}
+			else {
+				throw new RuntimeException(t.getClass().getName() +
+					" is not a valid exception");
+			}
+		}
+	}
+
+	@Override
+	public com.liferay.support.stafforderstuff.model.Food createDummyFood()
+		throws com.liferay.portal.kernel.exception.SystemException {
+		Object returnObj = null;
+
+		try {
+			returnObj = _invokableLocalService.invokeMethod(_methodName21,
+					_methodParameterTypes21, new Object[] {  });
+		}
+		catch (Throwable t) {
+			t = ClpSerializer.translateThrowable(t);
+
+			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+				throw (com.liferay.portal.kernel.exception.SystemException)t;
+			}
+
+			if (t instanceof RuntimeException) {
+				throw (RuntimeException)t;
+			}
+			else {
+				throw new RuntimeException(t.getClass().getName() +
+					" is not a valid exception");
+			}
+		}
+
+		return (com.liferay.support.stafforderstuff.model.Food)ClpSerializer.translateOutput(returnObj);
+	}
+
 	private InvokableLocalService _invokableLocalService;
 	private String _methodName0;
 	private String[] _methodParameterTypes0;
@@ -698,4 +788,10 @@ public class FoodLocalServiceClp implements FoodLocalService {
 	private String[] _methodParameterTypes16;
 	private String _methodName17;
 	private String[] _methodParameterTypes17;
+	private String _methodName19;
+	private String[] _methodParameterTypes19;
+	private String _methodName20;
+	private String[] _methodParameterTypes20;
+	private String _methodName21;
+	private String[] _methodParameterTypes21;
 }

@@ -237,7 +237,7 @@ public class FoodUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.liferay.support.stafforderstuff.model.Food[] findByGroupId_PrevAndNext(
-		int FoodId, long GroupId,
+		long FoodId, long GroupId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			com.liferay.support.stafforderstuff.NoSuchFoodException {
@@ -295,7 +295,7 @@ public class FoodUtil {
 	* @return the new food
 	*/
 	public static com.liferay.support.stafforderstuff.model.Food create(
-		int FoodId) {
+		long FoodId) {
 		return getPersistence().create(FoodId);
 	}
 
@@ -308,7 +308,7 @@ public class FoodUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.liferay.support.stafforderstuff.model.Food remove(
-		int FoodId)
+		long FoodId)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			com.liferay.support.stafforderstuff.NoSuchFoodException {
 		return getPersistence().remove(FoodId);
@@ -329,7 +329,7 @@ public class FoodUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.liferay.support.stafforderstuff.model.Food findByPrimaryKey(
-		int FoodId)
+		long FoodId)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			com.liferay.support.stafforderstuff.NoSuchFoodException {
 		return getPersistence().findByPrimaryKey(FoodId);
@@ -343,7 +343,7 @@ public class FoodUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.liferay.support.stafforderstuff.model.Food fetchByPrimaryKey(
-		int FoodId) throws com.liferay.portal.kernel.exception.SystemException {
+		long FoodId) throws com.liferay.portal.kernel.exception.SystemException {
 		return getPersistence().fetchByPrimaryKey(FoodId);
 	}
 

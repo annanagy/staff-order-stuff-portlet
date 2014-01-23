@@ -50,7 +50,8 @@ public class FoodLocalServiceWrapper implements FoodLocalService,
 	* @return the new food
 	*/
 	@Override
-	public com.liferay.support.stafforderstuff.model.Food createFood(int FoodId) {
+	public com.liferay.support.stafforderstuff.model.Food createFood(
+		long FoodId) {
 		return _foodLocalService.createFood(FoodId);
 	}
 
@@ -63,7 +64,8 @@ public class FoodLocalServiceWrapper implements FoodLocalService,
 	* @throws SystemException if a system exception occurred
 	*/
 	@Override
-	public com.liferay.support.stafforderstuff.model.Food deleteFood(int FoodId)
+	public com.liferay.support.stafforderstuff.model.Food deleteFood(
+		long FoodId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return _foodLocalService.deleteFood(FoodId);
@@ -180,7 +182,7 @@ public class FoodLocalServiceWrapper implements FoodLocalService,
 	}
 
 	@Override
-	public com.liferay.support.stafforderstuff.model.Food fetchFood(int FoodId)
+	public com.liferay.support.stafforderstuff.model.Food fetchFood(long FoodId)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return _foodLocalService.fetchFood(FoodId);
 	}
@@ -194,7 +196,7 @@ public class FoodLocalServiceWrapper implements FoodLocalService,
 	* @throws SystemException if a system exception occurred
 	*/
 	@Override
-	public com.liferay.support.stafforderstuff.model.Food getFood(int FoodId)
+	public com.liferay.support.stafforderstuff.model.Food getFood(long FoodId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return _foodLocalService.getFood(FoodId);
@@ -278,6 +280,23 @@ public class FoodLocalServiceWrapper implements FoodLocalService,
 		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
 		throws java.lang.Throwable {
 		return _foodLocalService.invokeMethod(name, parameterTypes, arguments);
+	}
+
+	@Override
+	public void addFood(java.lang.String name, double price,
+		java.lang.String unit) {
+		_foodLocalService.addFood(name, price, unit);
+	}
+
+	@Override
+	public void addDummyFood() {
+		_foodLocalService.addDummyFood();
+	}
+
+	@Override
+	public com.liferay.support.stafforderstuff.model.Food createDummyFood()
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _foodLocalService.createDummyFood();
 	}
 
 	/**

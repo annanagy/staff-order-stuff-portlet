@@ -21,6 +21,10 @@ import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.model.impl.BaseModelImpl;
+import com.liferay.portal.service.ServiceContext;
+
+import com.liferay.portlet.expando.model.ExpandoBridge;
+import com.liferay.portlet.expando.util.ExpandoBridgeFactoryUtil;
 
 import com.liferay.support.stafforderstuff.model.Consumption;
 import com.liferay.support.stafforderstuff.model.ConsumptionModel;
@@ -55,7 +59,7 @@ public class ConsumptionModelImpl extends BaseModelImpl<Consumption>
 	 */
 	public static final String TABLE_NAME = "StaffOrderStuff_Consumption";
 	public static final Object[][] TABLE_COLUMNS = {
-			{ "ConsumptionId", Types.INTEGER },
+			{ "ConsumptionId", Types.BIGINT },
 			{ "UserId", Types.INTEGER },
 			{ "FoodId", Types.INTEGER },
 			{ "Date", Types.TIMESTAMP },
@@ -63,7 +67,7 @@ public class ConsumptionModelImpl extends BaseModelImpl<Consumption>
 			{ "Unit", Types.VARCHAR },
 			{ "Status", Types.INTEGER }
 		};
-	public static final String TABLE_SQL_CREATE = "create table StaffOrderStuff_Consumption (ConsumptionId INTEGER not null primary key,UserId INTEGER,FoodId INTEGER,Date DATE null,Quantity DOUBLE,Unit VARCHAR(75) null,Status INTEGER)";
+	public static final String TABLE_SQL_CREATE = "create table StaffOrderStuff_Consumption (ConsumptionId LONG not null primary key,UserId INTEGER,FoodId INTEGER,Date DATE null,Quantity DOUBLE,Unit VARCHAR(75) null,Status INTEGER)";
 	public static final String TABLE_SQL_DROP = "drop table StaffOrderStuff_Consumption";
 	public static final String ORDER_BY_JPQL = " ORDER BY consumption.ConsumptionId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY StaffOrderStuff_Consumption.ConsumptionId ASC";
@@ -87,12 +91,12 @@ public class ConsumptionModelImpl extends BaseModelImpl<Consumption>
 	}
 
 	@Override
-	public int getPrimaryKey() {
+	public long getPrimaryKey() {
 		return _ConsumptionId;
 	}
 
 	@Override
-	public void setPrimaryKey(int primaryKey) {
+	public void setPrimaryKey(long primaryKey) {
 		setConsumptionId(primaryKey);
 	}
 
@@ -103,7 +107,7 @@ public class ConsumptionModelImpl extends BaseModelImpl<Consumption>
 
 	@Override
 	public void setPrimaryKeyObj(Serializable primaryKeyObj) {
-		setPrimaryKey(((Integer)primaryKeyObj).intValue());
+		setPrimaryKey(((Long)primaryKeyObj).longValue());
 	}
 
 	@Override
@@ -133,7 +137,7 @@ public class ConsumptionModelImpl extends BaseModelImpl<Consumption>
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Integer ConsumptionId = (Integer)attributes.get("ConsumptionId");
+		Long ConsumptionId = (Long)attributes.get("ConsumptionId");
 
 		if (ConsumptionId != null) {
 			setConsumptionId(ConsumptionId);
@@ -177,12 +181,12 @@ public class ConsumptionModelImpl extends BaseModelImpl<Consumption>
 	}
 
 	@Override
-	public int getConsumptionId() {
+	public long getConsumptionId() {
 		return _ConsumptionId;
 	}
 
 	@Override
-	public void setConsumptionId(int ConsumptionId) {
+	public void setConsumptionId(long ConsumptionId) {
 		_columnBitmask |= CONSUMPTIONID_COLUMN_BITMASK;
 
 		if (!_setOriginalConsumptionId) {
@@ -194,7 +198,7 @@ public class ConsumptionModelImpl extends BaseModelImpl<Consumption>
 		_ConsumptionId = ConsumptionId;
 	}
 
-	public int getOriginalConsumptionId() {
+	public long getOriginalConsumptionId() {
 		return _originalConsumptionId;
 	}
 
@@ -268,6 +272,19 @@ public class ConsumptionModelImpl extends BaseModelImpl<Consumption>
 	}
 
 	@Override
+	public ExpandoBridge getExpandoBridge() {
+		return ExpandoBridgeFactoryUtil.getExpandoBridge(0,
+			Consumption.class.getName(), getPrimaryKey());
+	}
+
+	@Override
+	public void setExpandoBridgeAttributes(ServiceContext serviceContext) {
+		ExpandoBridge expandoBridge = getExpandoBridge();
+
+		expandoBridge.setAttributes(serviceContext);
+	}
+
+	@Override
 	public Consumption toEscapedModel() {
 		if (_escapedModel == null) {
 			_escapedModel = (Consumption)ProxyUtil.newProxyInstance(_classLoader,
@@ -296,7 +313,7 @@ public class ConsumptionModelImpl extends BaseModelImpl<Consumption>
 
 	@Override
 	public int compareTo(Consumption consumption) {
-		int primaryKey = consumption.getPrimaryKey();
+		long primaryKey = consumption.getPrimaryKey();
 
 		if (getPrimaryKey() < primaryKey) {
 			return -1;
@@ -321,7 +338,7 @@ public class ConsumptionModelImpl extends BaseModelImpl<Consumption>
 
 		Consumption consumption = (Consumption)obj;
 
-		int primaryKey = consumption.getPrimaryKey();
+		long primaryKey = consumption.getPrimaryKey();
 
 		if (getPrimaryKey() == primaryKey) {
 			return true;
@@ -333,7 +350,7 @@ public class ConsumptionModelImpl extends BaseModelImpl<Consumption>
 
 	@Override
 	public int hashCode() {
-		return getPrimaryKey();
+		return (int)getPrimaryKey();
 	}
 
 	@Override
@@ -450,8 +467,8 @@ public class ConsumptionModelImpl extends BaseModelImpl<Consumption>
 	private static Class<?>[] _escapedModelInterfaces = new Class[] {
 			Consumption.class
 		};
-	private int _ConsumptionId;
-	private int _originalConsumptionId;
+	private long _ConsumptionId;
+	private long _originalConsumptionId;
 	private boolean _setOriginalConsumptionId;
 	private int _UserId;
 	private int _FoodId;

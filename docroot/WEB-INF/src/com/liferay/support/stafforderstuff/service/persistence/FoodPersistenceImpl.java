@@ -365,7 +365,7 @@ public class FoodPersistenceImpl extends BasePersistenceImpl<Food>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Food[] findByGroupId_PrevAndNext(int FoodId, long GroupId,
+	public Food[] findByGroupId_PrevAndNext(long FoodId, long GroupId,
 		OrderByComparator orderByComparator)
 		throws NoSuchFoodException, SystemException {
 		Food food = findByPrimaryKey(FoodId);
@@ -657,7 +657,7 @@ public class FoodPersistenceImpl extends BasePersistenceImpl<Food>
 	 * @return the new food
 	 */
 	@Override
-	public Food create(int FoodId) {
+	public Food create(long FoodId) {
 		Food food = new FoodImpl();
 
 		food.setNew(true);
@@ -675,7 +675,7 @@ public class FoodPersistenceImpl extends BasePersistenceImpl<Food>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Food remove(int FoodId) throws NoSuchFoodException, SystemException {
+	public Food remove(long FoodId) throws NoSuchFoodException, SystemException {
 		return remove((Serializable)FoodId);
 	}
 
@@ -824,7 +824,6 @@ public class FoodPersistenceImpl extends BasePersistenceImpl<Food>
 		foodImpl.setGroupId(food.getGroupId());
 		foodImpl.setName(food.getName());
 		foodImpl.setPrice(food.getPrice());
-		foodImpl.setQuantity(food.getQuantity());
 		foodImpl.setUnit(food.getUnit());
 
 		return foodImpl;
@@ -864,7 +863,7 @@ public class FoodPersistenceImpl extends BasePersistenceImpl<Food>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Food findByPrimaryKey(int FoodId)
+	public Food findByPrimaryKey(long FoodId)
 		throws NoSuchFoodException, SystemException {
 		return findByPrimaryKey((Serializable)FoodId);
 	}
@@ -924,7 +923,7 @@ public class FoodPersistenceImpl extends BasePersistenceImpl<Food>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Food fetchByPrimaryKey(int FoodId) throws SystemException {
+	public Food fetchByPrimaryKey(long FoodId) throws SystemException {
 		return fetchByPrimaryKey((Serializable)FoodId);
 	}
 

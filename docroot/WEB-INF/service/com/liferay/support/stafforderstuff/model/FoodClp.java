@@ -49,12 +49,12 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 	}
 
 	@Override
-	public int getPrimaryKey() {
+	public long getPrimaryKey() {
 		return _FoodId;
 	}
 
 	@Override
-	public void setPrimaryKey(int primaryKey) {
+	public void setPrimaryKey(long primaryKey) {
 		setFoodId(primaryKey);
 	}
 
@@ -65,7 +65,7 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 
 	@Override
 	public void setPrimaryKeyObj(Serializable primaryKeyObj) {
-		setPrimaryKey(((Integer)primaryKeyObj).intValue());
+		setPrimaryKey(((Long)primaryKeyObj).longValue());
 	}
 
 	@Override
@@ -77,7 +77,6 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 		attributes.put("GroupId", getGroupId());
 		attributes.put("Name", getName());
 		attributes.put("Price", getPrice());
-		attributes.put("Quantity", getQuantity());
 		attributes.put("Unit", getUnit());
 
 		return attributes;
@@ -85,7 +84,7 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Integer FoodId = (Integer)attributes.get("FoodId");
+		Long FoodId = (Long)attributes.get("FoodId");
 
 		if (FoodId != null) {
 			setFoodId(FoodId);
@@ -115,12 +114,6 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 			setPrice(Price);
 		}
 
-		Double Quantity = (Double)attributes.get("Quantity");
-
-		if (Quantity != null) {
-			setQuantity(Quantity);
-		}
-
 		String Unit = (String)attributes.get("Unit");
 
 		if (Unit != null) {
@@ -129,19 +122,19 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 	}
 
 	@Override
-	public int getFoodId() {
+	public long getFoodId() {
 		return _FoodId;
 	}
 
 	@Override
-	public void setFoodId(int FoodId) {
+	public void setFoodId(long FoodId) {
 		_FoodId = FoodId;
 
 		if (_foodRemoteModel != null) {
 			try {
 				Class<?> clazz = _foodRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setFoodId", int.class);
+				Method method = clazz.getMethod("setFoodId", long.class);
 
 				method.invoke(_foodRemoteModel, FoodId);
 			}
@@ -236,29 +229,6 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 				Method method = clazz.getMethod("setPrice", double.class);
 
 				method.invoke(_foodRemoteModel, Price);
-			}
-			catch (Exception e) {
-				throw new UnsupportedOperationException(e);
-			}
-		}
-	}
-
-	@Override
-	public double getQuantity() {
-		return _Quantity;
-	}
-
-	@Override
-	public void setQuantity(double Quantity) {
-		_Quantity = Quantity;
-
-		if (_foodRemoteModel != null) {
-			try {
-				Class<?> clazz = _foodRemoteModel.getClass();
-
-				Method method = clazz.getMethod("setQuantity", double.class);
-
-				method.invoke(_foodRemoteModel, Quantity);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -363,7 +333,6 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 		clone.setGroupId(getGroupId());
 		clone.setName(getName());
 		clone.setPrice(getPrice());
-		clone.setQuantity(getQuantity());
 		clone.setUnit(getUnit());
 
 		return clone;
@@ -371,7 +340,7 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 
 	@Override
 	public int compareTo(Food food) {
-		int primaryKey = food.getPrimaryKey();
+		long primaryKey = food.getPrimaryKey();
 
 		if (getPrimaryKey() < primaryKey) {
 			return -1;
@@ -396,7 +365,7 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 
 		FoodClp food = (FoodClp)obj;
 
-		int primaryKey = food.getPrimaryKey();
+		long primaryKey = food.getPrimaryKey();
 
 		if (getPrimaryKey() == primaryKey) {
 			return true;
@@ -408,12 +377,12 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 
 	@Override
 	public int hashCode() {
-		return getPrimaryKey();
+		return (int)getPrimaryKey();
 	}
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(15);
+		StringBundler sb = new StringBundler(13);
 
 		sb.append("{FoodId=");
 		sb.append(getFoodId());
@@ -425,8 +394,6 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 		sb.append(getName());
 		sb.append(", Price=");
 		sb.append(getPrice());
-		sb.append(", Quantity=");
-		sb.append(getQuantity());
 		sb.append(", Unit=");
 		sb.append(getUnit());
 		sb.append("}");
@@ -436,7 +403,7 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(25);
+		StringBundler sb = new StringBundler(22);
 
 		sb.append("<model><model-name>");
 		sb.append("com.liferay.support.stafforderstuff.model.Food");
@@ -463,10 +430,6 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 		sb.append(getPrice());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>Quantity</column-name><column-value><![CDATA[");
-		sb.append(getQuantity());
-		sb.append("]]></column-value></column>");
-		sb.append(
 			"<column><column-name>Unit</column-name><column-value><![CDATA[");
 		sb.append(getUnit());
 		sb.append("]]></column-value></column>");
@@ -476,12 +439,11 @@ public class FoodClp extends BaseModelImpl<Food> implements Food {
 		return sb.toString();
 	}
 
-	private int _FoodId;
+	private long _FoodId;
 	private long _CompanyId;
 	private long _GroupId;
 	private String _Name;
 	private double _Price;
-	private double _Quantity;
 	private String _Unit;
 	private BaseModel<?> _foodRemoteModel;
 }
